@@ -1,0 +1,66 @@
+.bootstrap-tagsinput {
+  /*Triet*/
+/*  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);*/
+
+  /*display: inline-block;*/
+  /*padding: 4px 6px;*/
+  /*margin-bottom: 10px;*/
+  /*color: #555;*/
+  /*vertical-align: middle;*/
+  /*border-radius: 4px;*/
+  /*max-width: 100%;*/
+  /*line-height: 22px;*/
+  /*cursor: text;*/
+}
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  width: auto !important;
+  max-width: inherit;
+}
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white;
+  /*Triet*/
+  border-radius: 0.75em;
+  padding: 0 5px;
+  background-color: #E07252 /*TC01*/;
+  /*Triet*/
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.bootstrap-tagsinput .tag.third {
+    color: #676767;
+    background-color: #DDD;
+}
+
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  /*margin-left: 8px;*/
+  /*Triet*/
+  margin-left: 5px;
+  cursor: pointer;
+  vertical-align: text-top;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 1px 2px;
+  /*Triet*/
+  font-size: 85%;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}

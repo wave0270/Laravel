@@ -1,0 +1,11 @@
+<?php $__env->startSection('content'); ?>
+<h1>Home</h1>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('head'); ?>
+<title>Home</title>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('extends/globalHome', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

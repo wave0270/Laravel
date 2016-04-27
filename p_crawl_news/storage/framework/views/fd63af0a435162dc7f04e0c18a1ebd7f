@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<?php echo $__env->make('include/home/head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    	<!-- css -->
+    	<?php echo $__env->make('include/home/css', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->yieldContent('head'); ?>
+    </head>
+    <body>
+    	<div id="page">
+    		<div id="w-position-top">
+    			<?php echo $__env->make('include/home/banner_main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    			<?php echo $__env->make('include/home/menu_top', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    		</div>
+    		<div id="w-position-middle" class="container">
+    			<div id="w-position-left" class="col-md-3">
+    				<?php echo $__env->make('include/home/menu_left', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    			</div>
+    			<div id="w-position-main" class="col-md-9">
+    				<?php echo $__env->yieldContent('content'); ?>
+    			</div>
+    		</div>
+    		<div id="w-position-bottom">
+    			<?php echo $__env->make('include/home/bottom', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    		</div>
+    	</div>
+    	<div id="process-loading">
+    		<img atl="process-loading" src="<?php echo e(url('images/hex-loader.gif')); ?>" />
+    	</div>
+    	<?php echo $__env->make('include/home/menu_left_mobile', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    	<!-- js -->
+		<?php echo $__env->make('include/home/js', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->yieldContent('js'); ?>
+    </body>
+</html>

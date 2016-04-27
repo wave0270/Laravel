@@ -1,0 +1,16 @@
+cd /var/www/html/Dropbox/Public/github_prj/p_l4_2
+
+1.	sudo service apache2 restart	//neu ko chay
+2.	php artisan serve				//neu ko chay
+3.	php artisan make:controller DashboardController		//add "DashboardController" controller
+4.	laravel-5/config/database.php	//config
+5.	php artisan migrate				//tao table in database (user, password_reset, migrations)
+6.	laravel-5/database/migrations đó là 2014_10_12_000000_create_users_table.php	//thay doi cau truc user table
+7.	php artisan make:migration create_articles_table --create="articles"			//tao file 2015_08_20_170215_create_articles_table.php
+
+
+
+
+
+
+
