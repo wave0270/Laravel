@@ -18,4 +18,4 @@ npm-debug.log.*
 
 # laravel:
 p_crawl_news/storage/framework
-storage/logs
+p_crawl_news/storage/logs
