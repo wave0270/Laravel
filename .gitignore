@@ -16,4 +16,5 @@ npm-debug.log.*
 *.sw?
 !*.swf
 
-# manual:
+# laravel:
+p_crawl_news/storage/framework
