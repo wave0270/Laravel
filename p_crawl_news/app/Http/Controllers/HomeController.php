@@ -33,9 +33,9 @@ class HomeController extends Controller {
 	{
 		return view('home');
 	}
-	
+
 	public function crawlData(){
-		return view('pages.dashboard.crawlData');
+		return view('pages.crawl.crawlData');
 	}
 	public function save_news(){
 		$category = DB::table('news_category_tb')->get();
@@ -46,7 +46,7 @@ class HomeController extends Controller {
 		}
 		return 'save_news ok : '.$count_number;
 	}
-	public function insertNews($v,$category){	
+	public function insertNews($v,$category){
 		$key = $v['title'].'-'.time();
 		$params = [
 			'domain'		=>	$v['domain'],
@@ -59,7 +59,7 @@ class HomeController extends Controller {
 			'type'			=>	$v['type'],
 			'key'			=>	$key,
 		];
-		
+
 		/*check table save to*/
 		if($v['table'] == 'news_beauty_tb'){
 			$permission_tb = 'news_cate_permission_tb';
@@ -69,26 +69,26 @@ class HomeController extends Controller {
 			$params['time'] = $v['time'];
 			$params['quality'] = $v['quality'];
 		}
-		
+
 		DB::table($v['table'])->insert($params);
-		
+
 		/*get id of category*/
 		foreach ($category as $key_cat => $value_cat) {
-			if($v['type'] == $value_cat->key){
+			if($v['type'] == $value_cat->type){
 				$id_cate = $value_cat->id;
 				break;
 			}
 		}
-		
+
 		/*insert permission table*/
 		$params_per = [
 			'key_news'		=>	$key,
 			'id_cate'		=>	$id_cate,
 		];
-		
+
 		DB::table($permission_tb)->insert($params_per);
 	}
-	
+
 	public function deleteNewsAll(){
 		DB::table('news_cate_permission_tb')->delete();
 		DB::table('news_beauty_tb')->delete();

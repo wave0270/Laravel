@@ -63,14 +63,14 @@ return [
 			// 'prefix'    => '',
 			// 'strict'    => false,
 		// ],
-		
+
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => '54.254.170.8',
-			// 'host'      => 'localhost',
+			// 'host'      => '54.254.170.8',
+			'host'      => 'localhost',
 			'database'  => 'wd_crawl_news_db',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'songoku',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

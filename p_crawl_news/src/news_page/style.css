@@ -1,0 +1,8 @@
+#nav .sf-with-li:hover ul.sub-menu{
+  display: block
+}
+
+#nav .sf-with-li ul.sub-menu{
+  display: none;
+  width: 18em;
+}

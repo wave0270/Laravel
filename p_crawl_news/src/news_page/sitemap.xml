@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../../sitemap.xsl" type="text/xsl" media="all"?>
+<site>
+<page file="index.html" text="News - Responsive HTML5 and CSS3 template" title="News - Responsive HTML5 and CSS3 template">
+<page file="leftsidebar_001.html" text="Left Sidebar." title="News - Responsive HTML5 and CSS3 template"/>
+<page file="reviews.html" text="Reviews." title="News - Responsive HTML5 and CSS3 template"/>
+<page file="single_001.html" text="Single News." title="News - Responsive HTML5 and CSS3 template"/>
+<page file="features.html" text="Features." title="News - Responsive HTML5 and CSS3 template"/>
+<page file="contact_001.html" text="Contact." title="News - Responsive HTML5 and CSS3 template"/>
+</page>
+</site>

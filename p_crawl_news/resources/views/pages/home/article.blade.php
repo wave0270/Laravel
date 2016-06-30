@@ -1,4 +1,4 @@
-@extends('extends/globalHome')
+@extends('pages/home/extends/globalHome')
 
 @section('content')
 <h1>Article</h1>

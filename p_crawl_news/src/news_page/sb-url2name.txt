@@ -1,0 +1,6 @@
+http://goesse.com/demos/html/news/index.html	index
+http://goesse.com/demos/html/news/leftsidebar.html	leftsidebar_001
+http://goesse.com/demos/html/news/reviews.html	reviews
+http://goesse.com/demos/html/news/single.html	single_001
+http://goesse.com/demos/html/news/features.html	features
+http://goesse.com/demos/html/news/contact.html	contact_001

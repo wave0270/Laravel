@@ -1,4 +1,4 @@
-@extends('extends/globalDashboard')
+@extends('pages/dashboard/extends/globalDashboard')
 
 @section('content')
 <h1>Dashboard</h1>

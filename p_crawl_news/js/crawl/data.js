@@ -1,7 +1,7 @@
 /**************************************
- * 
- * *************************************/ 
-/*one obj can use for a table in database*/ 
+ *
+ * *************************************/
+/*one obj can use for a table in database*/
 var vnexpress_beauty = [
 	{
 		url_page 	: "http://suckhoe.vnexpress.net/tin-tuc/khoe-dep/page/{0}.html",
@@ -45,7 +45,7 @@ var vnexpress_beauty_obj = {
     		image_path	: '.thumb img',
     		desc_path	: '.news_lead',
 		},
-		
+
 		// sub
 		// {
 			// parent_path	: '.content_scoller > ul > li',
@@ -54,7 +54,7 @@ var vnexpress_beauty_obj = {
     		// image_path	: '.icon_content',
     		// desc_path	: '.news_lead',
 		// },
-		
+
 		// hot
 		{
 			parent_path	: '.box_hot_news',
@@ -71,7 +71,7 @@ var vnexpress_beauty_obj = {
 		'.block_timer_share','.relative_new','.title_news','.title_div_fbook','#box_comment','#box_tinkhac_detail','.block_tag','#box_tinlienquan',"#right_calculator"
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
 var eva_thoitrang = [
 	{
 		url_page 	: "",
@@ -115,7 +115,7 @@ var eva_thoitrang = [
 		table		: 'news_beauty_tb',
 		num_page	: 1,
 	},
-	
+
 	{
 		url_page 	: "",
 		url			: "http://eva.vn/lam-dep-c58.html",
@@ -173,7 +173,7 @@ var eva_thoitrang_obj = {
 		'.baiviet-bailienquan'
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
 var ngoisao_news = [
 	{
 		url_page 	: "http://ngoisao.net/tin-tuc/hau-truong/page/{0}.html",
@@ -216,10 +216,10 @@ var ngoisao_news_obj = {
 		desc	: '.lead',
 	},
 	csspath_remove : [
-		
+
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
 var kenh14_news = [
 	{
 		url_page 	: "http://kenh14.vn/star/trang-{0}.chn",
@@ -262,10 +262,10 @@ var kenh14_news_obj = {
 		desc	: '.sapo',
 	},
 	csspath_remove : [
-		
+
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
 var ebe_vn = [
 	{
 		url_page 	: "http://www.ebe.vn/chuan-bi-mang-thai/chuan-bi?page={0}",
@@ -323,10 +323,10 @@ var ebe_vn_obj = {
 		content	: '.article-item-content',
 	},
 	csspath_remove : [
-		
+
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
 var phunutoday_vn = [
 	{
 		url_page 	: "http://phunutoday.vn/thoi-trang/trang-{0}.html", //not yet
@@ -347,7 +347,7 @@ var phunutoday_vn_obj = {
     		image_path	: 'a > img',
     		desc_path	: '.summary',
 		},
-		
+
 		// sub
 		{
 			parent_path	: '.wrapper_center > .main_col.main_col_2_cols > .new_cat > .news_head > .news_head_l > .news_others > .news-item',
@@ -378,10 +378,10 @@ var phunutoday_vn_obj = {
 		desc	: '.summary',
 	},
 	csspath_remove : [
-		'table.multimedia'	
+		'table.multimedia'
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
 var youtube_com = [
 	// {
 		// url_page 	: "",
@@ -402,14 +402,25 @@ var youtube_com_obj = {
 	domain		: 'youtube.com',
 	csspath		: [
 		// page
+		// {
+			// parent_path	: 'div > div:nth-of-type(4) > div:nth-of-type(1).search.branded-page-v2-secondary-column-wide.no-flex.clearfix > div:nth-of-type(5).content-alignment > div:nth-of-type(1).branded-page-v2-container.branded-page-base-bold-titles.branded-page-v2-container-flex-width > div:nth-of-type(1).branded-page-v2-col-container > div:nth-of-type(1).branded-page-v2-col-container-inner > div:nth-of-type(1).branded-page-v2-primary-col > div:nth-of-type(1).yt-card.clearfix > div:nth-of-type(2).branded-page-v2-body.branded-page-v2-primary-column-content > div:nth-of-type(2) > ol:nth-of-type(1).section-list > li:nth-of-type(1) > ol:nth-of-type(1).item-section > li > div:nth-of-type(1).yt-lockup.yt-lockup-tile.yt-lockup-video.vve-check.clearfix.yt-uix-tile > div:nth-of-type(1).yt-lockup-dismissable',
+    // 		title_path	: 'div:nth-of-type(2).yt-lockup-content > h3:nth-of-type(1).yt-lockup-title > a:nth-of-type(1).yt-uix-sessionlink.yt-uix-tile-link.yt-ui-ellipsis.yt-ui-ellipsis-2.spf-link',
+    // 		href_path	: 'div:nth-of-type(2).yt-lockup-content > h3:nth-of-type(1).yt-lockup-title > a:nth-of-type(1).yt-uix-sessionlink.yt-uix-tile-link.yt-ui-ellipsis.yt-ui-ellipsis-2.spf-link',
+    // 		image_path	: 'div:nth-of-type(1).yt-lockup-thumbnail.contains-addto > a:nth-of-type(1).yt-uix-sessionlink.spf-link > div:nth-of-type(1).yt-thumb.video-thumb > span:nth-of-type(1).yt-thumb-simple > img:nth-of-type(1)',
+    // 		desc_path	: null,
+    // 		time_path	: 'a .video-time',
+    // 		quality_path: '.yt-badge',
+		// 		parent_path: ".yt-lockup
+		// },
 		{
-			parent_path	: 'div > div:nth-of-type(4) > div:nth-of-type(1).search.branded-page-v2-secondary-column-wide.no-flex.clearfix > div:nth-of-type(5).content-alignment > div:nth-of-type(1).branded-page-v2-container.branded-page-base-bold-titles.branded-page-v2-container-flex-width > div:nth-of-type(1).branded-page-v2-col-container > div:nth-of-type(1).branded-page-v2-col-container-inner > div:nth-of-type(1).branded-page-v2-primary-col > div:nth-of-type(1).yt-card.clearfix > div:nth-of-type(2).branded-page-v2-body.branded-page-v2-primary-column-content > div:nth-of-type(2) > ol:nth-of-type(1).section-list > li:nth-of-type(1) > ol:nth-of-type(1).item-section > li > div:nth-of-type(1).yt-lockup.yt-lockup-tile.yt-lockup-video.vve-check.clearfix.yt-uix-tile > div:nth-of-type(1).yt-lockup-dismissable',
+			// parent_path	: 'div > div:nth-of-type(4) > div:nth-of-type(1).search.branded-page-v2-secondary-column-wide.no-flex.clearfix > div:nth-of-type(5).content-alignment > div:nth-of-type(1).branded-page-v2-container.branded-page-base-bold-titles.branded-page-v2-container-flex-width > div:nth-of-type(1).branded-page-v2-col-container > div:nth-of-type(1).branded-page-v2-col-container-inner > div:nth-of-type(1).branded-page-v2-primary-col > div:nth-of-type(1).yt-card.clearfix > div:nth-of-type(2).branded-page-v2-body.branded-page-v2-primary-column-content > div:nth-of-type(2) > ol:nth-of-type(1).section-list > li:nth-of-type(1) > ol:nth-of-type(1).item-section > li > div:nth-of-type(1).yt-lockup.yt-lockup-tile.yt-lockup-video.vve-check.clearfix.yt-uix-tile > div:nth-of-type(1).yt-lockup-dismissable',
     		title_path	: 'div:nth-of-type(2).yt-lockup-content > h3:nth-of-type(1).yt-lockup-title > a:nth-of-type(1).yt-uix-sessionlink.yt-uix-tile-link.yt-ui-ellipsis.yt-ui-ellipsis-2.spf-link',
     		href_path	: 'div:nth-of-type(2).yt-lockup-content > h3:nth-of-type(1).yt-lockup-title > a:nth-of-type(1).yt-uix-sessionlink.yt-uix-tile-link.yt-ui-ellipsis.yt-ui-ellipsis-2.spf-link',
     		image_path	: 'div:nth-of-type(1).yt-lockup-thumbnail.contains-addto > a:nth-of-type(1).yt-uix-sessionlink.spf-link > div:nth-of-type(1).yt-thumb.video-thumb > span:nth-of-type(1).yt-thumb-simple > img:nth-of-type(1)',
     		desc_path	: null,
     		time_path	: 'a .video-time',
     		quality_path: '.yt-badge',
+				parent_path: ".yt-lockup"
 		},
 		// sub
 
@@ -420,7 +431,7 @@ var youtube_com_obj = {
 		content	: '.postpadding .content',
 	},
 	csspath_remove : [
-		
+
 	]
 };
-/***********************************************************/ 
+/***********************************************************/
