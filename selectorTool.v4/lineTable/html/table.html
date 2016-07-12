@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+      	<link rel="stylesheet" href="../css/rwd-table.css?v=5.0.3">
+      	<link rel="stylesheet" href="../css/custom.css">
+    </head>
+    <body>
+    	<div class="table-responsive">
+    		<p><div id="arrTable">
+    			
+    		</div></p>
+    		<div style="display:none" id="tablestemp"> </div>
+  		</div>
+    </body>
+    <script src="../js/libs/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="../js/libs/react.fb/JSXTransformer.js"></script>
+	<script src="../js/libs/react.fb/react.min.js"></script>
+	<script src="../js/js-yaml.js"></script>
+	<script type='text/jsx' src="table.jsx"></script>
+	<script type='' src="../js/custom.js"></script>
+	<script type='text/jsx' >
+		/** @jsx React.DOM */
+		
+		// Load mặc định từ localStorage lên
+		jsObject =JSON.parse(localStorage.getItem('jsonStr'));
+		renderTable(jsObject);
+		
+		$(window).bind('storage', function (e) {
+			if(e.originalEvent.key == 'jsonStr'){
+				jsObject =JSON.parse(localStorage.getItem('jsonStr'));
+				renderTable(jsObject);
+			}
+		});
+		
+		function renderTable(jsObject){
+			listTable = getListTable(jsObject);
+			// Kiểm tra jsObject rổng
+			if (jsObject.length == 0) {
+				console.log('error: Json không có giá trị!');
+				return null;
+			}
+			$('#arrTable').html('');
+			for(var i in listTable){
+				React.renderComponent(			
+					renderTableSelector( { data: listTable[i]} ),
+						document.getElementById('tablestemp')
+				);
+				
+				htmlStr = '<div class="panel panel-default"> <div class="panel-heading"> <h3 class="panel-title">TABLE: ' + listTable[i]['tableName'] + '</h3></div> </div>';
+				htmlStr += document.getElementById('tablestemp').innerHTML;
+				$('#arrTable').append(htmlStr);
+			}
+			
+			$('#tablestemp').html(''); // Xóa html tạm
+			
+		}
+		
+		// Lấy danh sách data cho các table, length của list = số bảng
+		function getListTable(jsObject) {
+			listTable = [];
+			
+			var tableMain = getArrTableMain(jsObject);
+			
+			// != null thì đưa vào danh sách bảng, để hiển thị
+			if (tableMain != null) {
+				listTable.push({
+					'tableName' : 'tableMain',
+					'data' : tableMain,
+				});
+			}
+			
+			//Tiếp tục mỗi nhóm làm data cho 1 bảng
+			for (var i = 0; i < jsObject.length; i++) {
+				// Chỉ lấy các phần tử mà có dataChild
+				if (jsObject[i]['dataChild'].length > 0) {
+					var arrTableGroup = getArrTableGroup(jsObject[i]);
+					listTable.push({
+						'tableName' : jsObject[i]['titleParent'],
+						'data' : arrTableGroup,
+					});
+				}
+			}
+			
+			return listTable;
+		}
+		
+		
+		// Lấy JSON để tạo thành dữ liệu 1 bảng từ các JSON[i] không có con (không có dataChild)
+		function getArrTableMain(jsObject){
+			arrTable = [];
+			elementItem = {};
+			element = [];
+			for ( i = 0; i < jsObject.length; i++) {
+				// Chỉ lấy các phần tử mà không có dataChild
+				if (jsObject[i]['dataChild'].length == 0) {
+					// Trường hợp data có nhiều dòng(content bài báo), format dưa vào <ul>.
+					if(jsObject[i]['dataParent'].length > 1){
+						data = '<ul>';
+						for(j in jsObject[i]['dataParent']){
+							text = jsObject[i]['dataParent'][j];
+							if($.inArray( text.slice(-4), [ ".jpg", ".JPG", '.png', ".PNG", ".gif", ".GIF" ] ) == 0){
+								// Nếu là hình ảnh
+								data += String.format('<li><img style="height:50px; max-width:100px;" src="{0}"></img><br />{0}</li>', text);
+							}else if(text.slice(-5) == '.html'){ 
+								// Nếu là link
+								data += String.format('<li><a href="{0}" target="_blank">{0}</a></li>', text);
+							}else{
+								data += String.format('<li>{0}</li>', text);
+							}
+						}
+						data += '</ul>';
+					}else{
+						//data = jsObject[i]['dataParent'][0];
+						text = jsObject[i]['dataParent'][0];
+						if($.inArray( text.slice(-4), [ ".jpg", ".JPG", '.png', ".PNG", ".gif", ".GIF" ] ) == 0){
+							// Nếu là hình ảnh
+							data = String.format('<li><img style="height:50px; max-width:100px;" src="{0}"></img><br />{0}</li>', text);
+						}else if(text.slice(-5) == '.html'){ 
+							// Nếu là link
+							data = String.format('<li><a href="{0}" target="_blank">{0}</a></li>', text);
+						}else{
+							data = String.format('<li>{0}</li>', text);
+						}
+					}
+					elementItem = {'name' : jsObject[i]['titleParent'], 'data' : data};
+					element.push(elementItem);
+				}
+			}
+			// không có phần tử nào không có dataChild
+			if(element.length == 0) return null;
+			
+			arrTable.push({'element' : element});
+			
+			return arrTable;
+		}
+		
+		// Lấy JSON để tạo thành dữ liệu 1 bảng từ 1 JSON[i] có con (có dataChild)
+		function getArrTableGroup(jsObject){
+			keysGroup = Object.keys(jsObject['dataChild'][0]);
+			tableName = '';
+			arrTable = [];
+
+			for(i = 0; i < jsObject['dataChild'].length; i++){
+				dataChildItem = jsObject['dataChild'][i];
+				elementItem = {};
+				element = [];
+				for(var j = 0; j < keysGroup.length; j++){
+					elementItem = {'name' : keysGroup[j], 'data' : dataChildItem[keysGroup[j]] };
+					element.push(elementItem);
+				}
+				arrTable.push({'element' : element});
+			}
+			return arrTable;
+		}
+	</script>
+</html>

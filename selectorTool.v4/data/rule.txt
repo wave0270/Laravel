@@ -1,0 +1,1219 @@
+url: ""
+ruleCheck: "0"
+projectCheck: defaultSelector
+fieldlistData:
+  - parentName: _
+    title: title
+    path: "div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(1).left[class='left'] > div:nth-of-type(1).box_width_common[class='box_width_common'] > div:nth-of-type(1).w670.left[class='w670 left'] > div:nth-of-type(1).main_content_detail.width_common[class='main_content_detail width_common'] > div:nth-of-type(1).width_common.line_col_480.space_bottom_20[class='width_common line_col_480 space_bottom_20'] > div:nth-of-type(1).block_col_480[class='block_col_480'] > div:nth-of-type(3).title_news[class='title_news'] > h1:nth-of-type(1)"
+    number: 1
+    attr: innerText
+    attrStyle: innerText
+    arrClickElements:
+      - - tagName: h1
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": title_news
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: title_news
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": block_col_480
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: block_col_480
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col_480
+            "2": space_bottom_20
+            length: 3
+          specialAttr:
+            - valueSpecialAttr: width_common line_col_480 space_bottom_20
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": main_content_detail
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: main_content_detail width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": w670
+            "1": left
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: w670 left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": box_width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: box_width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": left
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: _
+    title: summary
+    path: "div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(1).left[class='left'] > div:nth-of-type(1).box_width_common[class='box_width_common'] > div:nth-of-type(1).w670.left[class='w670 left'] > div:nth-of-type(1).main_content_detail.width_common[class='main_content_detail width_common'] > div:nth-of-type(1).width_common.line_col_480.space_bottom_20[class='width_common line_col_480 space_bottom_20'] > div:nth-of-type(1).block_col_480[class='block_col_480'] > div:nth-of-type(4).short_intro.txt_666[class='short_intro txt_666']"
+    number: 1
+    attr: innerText
+    attrStyle: innerText
+    arrClickElements:
+      - - tagName: div
+          nthOfType: "4"
+          id: ""
+          className:
+            "0": short_intro
+            "1": txt_666
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: short_intro txt_666
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": block_col_480
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: block_col_480
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col_480
+            "2": space_bottom_20
+            length: 3
+          specialAttr:
+            - valueSpecialAttr: width_common line_col_480 space_bottom_20
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": main_content_detail
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: main_content_detail width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": w670
+            "1": left
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: w670 left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": box_width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: box_width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": left
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: _
+    title: content
+    path: "div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(1).left[class='left'] > div:nth-of-type(1).box_width_common[class='box_width_common'] > div:nth-of-type(1).w670.left[class='w670 left'] > div:nth-of-type(1).main_content_detail.width_common[class='main_content_detail width_common'] > div:nth-of-type(1).width_common.line_col_480.space_bottom_20[class='width_common line_col_480 space_bottom_20'] > div:nth-of-type(1).block_col_480[class='block_col_480'] > div:nth-of-type(6) > div:nth-of-type(1).fck_detail.width_common[class='fck_detail width_common'] > p.Normal[class='Normal']"
+    number: 10
+    attr: innerText
+    attrStyle: innerText
+    arrClickElements:
+      - - tagName: p
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": Normal
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: Normal
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": fck_detail
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: fck_detail width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "6"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": block_col_480
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: block_col_480
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col_480
+            "2": space_bottom_20
+            length: 3
+          specialAttr:
+            - valueSpecialAttr: width_common line_col_480 space_bottom_20
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": main_content_detail
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: main_content_detail width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": w670
+            "1": left
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: w670 left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": box_width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: box_width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": left
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+      - - tagName: p
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": Normal
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: Normal
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": fck_detail
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: fck_detail width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "6"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": block_col_480
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: block_col_480
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col_480
+            "2": space_bottom_20
+            length: 3
+          specialAttr:
+            - valueSpecialAttr: width_common line_col_480 space_bottom_20
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": main_content_detail
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: main_content_detail width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": w670
+            "1": left
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: w670 left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": box_width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: box_width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": left
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: left
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: _
+    title: list1
+    path: "div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(2).right[class='right'] > div:nth-of-type(4).box_category.width_common[class='box_category width_common'] > div:nth-of-type(2).content_box_category.width_common[class='content_box_category width_common'] > ul.list_new_140.list_col > li"
+    number: 4
+    attr: innerText
+    attrStyle: innerText
+    arrClickElements:
+      - - tagName: li
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: ul
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": list_new_140
+            "1": list_col
+            "2": end
+            length: 3
+          specialAttr:
+            - valueSpecialAttr: list_new_140 list_col end
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "4"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+      - - tagName: li
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_new_140
+            "1": list_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: list_new_140 list_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "4"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+      - - tagName: li
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": end
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: end
+              nameSpecialAttr: class
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_new_140
+            "1": list_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: list_new_140 list_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "4"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: list1
+    title: img1
+    path: "div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(2).right[class='right'] > div:nth-of-type(4).box_category.width_common[class='box_category width_common'] > div:nth-of-type(2).content_box_category.width_common[class='content_box_category width_common'] > ul.list_new_140.list_col > li > div:nth-of-type(1).thumb_140.width_common[class='thumb_140 width_common'] > a:nth-of-type(1) > img:nth-of-type(1)[class='']"
+    number: 4
+    attr: getAttribute
+    attrStyle: src
+    arrClickElements:
+      - - tagName: img
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: a
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": thumb_140
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: thumb_140 width_common
+              nameSpecialAttr: class
+        - tagName: li
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_new_140
+            "1": list_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: list_new_140 list_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "4"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: list1
+    title: title1
+    path: "div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(2).right[class='right'] > div:nth-of-type(4).box_category.width_common[class='box_category width_common'] > div:nth-of-type(2).content_box_category.width_common[class='content_box_category width_common'] > ul.list_new_140.list_col > li > strong:nth-of-type(1) > a:nth-of-type(1)"
+    number: 4
+    attr: innerText
+    attrStyle: innerText
+    arrClickElements:
+      - - tagName: a
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: strong
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: li
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_new_140
+            "1": list_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: list_new_140 list_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "4"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: _
+    title: list2
+    path: "div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(2).right[class='right'] > div:nth-of-type(6).box_category.width_common[class='box_category width_common'] > div:nth-of-type(2).content_box_category.width_common[class='content_box_category width_common'] > div:nth-of-type(2).home_bright_640[class='home_bright_640'] > ul:nth-of-type(1).list_news_dot_3x3_300[class='list_news_dot_3x3_300'] > li"
+    number: 3
+    attr: innerText
+    attrStyle: innerText
+    arrClickElements:
+      - - tagName: li
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_news_dot_3x3_300
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: list_news_dot_3x3_300
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": home_bright_640
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: home_bright_640
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "6"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+      - - tagName: li
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_news_dot_3x3_300
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: list_news_dot_3x3_300
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": home_bright_640
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: home_bright_640
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "6"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: list2
+    title: link
+    path: "div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1).width_common[class='width_common'] > div:nth-of-type(3).width_common.line_col[class='width_common line_col'] > div:nth-of-type(2).right[class='right'] > div:nth-of-type(6).box_category.width_common[class='box_category width_common'] > div:nth-of-type(2).content_box_category.width_common[class='content_box_category width_common'] > div:nth-of-type(2).home_bright_640[class='home_bright_640'] > ul:nth-of-type(1).list_news_dot_3x3_300[class='list_news_dot_3x3_300'] > li > p:nth-of-type(1)[class=''] > strong:nth-of-type(1) > a:nth-of-type(1)"
+    number: 2
+    attr: getAttribute
+    attrStyle: href
+    arrClickElements:
+      - - tagName: a
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: strong
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: p
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: li
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr:
+            - valueSpecialAttr: ""
+              nameSpecialAttr: class
+        - tagName: ul
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": list_news_dot_3x3_300
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: list_news_dot_3x3_300
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": home_bright_640
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: home_bright_640
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": content_box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: content_box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "6"
+          id: ""
+          className:
+            "0": box_category
+            "1": width_common
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: box_category width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className:
+            "0": right
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: right
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className:
+            "0": width_common
+            "1": line_col
+            length: 2
+          specialAttr:
+            - valueSpecialAttr: width_common line_col
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className:
+            "0": width_common
+            length: 1
+          specialAttr:
+            - valueSpecialAttr: width_common
+              nameSpecialAttr: class
+        - tagName: div
+          nthOfType: "1"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "3"
+          id: ""
+          className: ""
+          specialAttr: []
+        - tagName: div
+          nthOfType: "2"
+          id: ""
+          className: ""
+          specialAttr: []
+  - parentName: _
+    title: _
+    path: "  "
+    number: "0"
+    attr: ""
+    attrStyle: ""
+    arrClickElements: ""

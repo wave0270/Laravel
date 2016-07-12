@@ -1,0 +1,24 @@
+* Name: lineTable
+* ver: 0.1
+* date: 15/07/2014
+
+- Đầu vào 1 Json array
+- Load jsonArray lên ace editor
+- Convert sang YAML, load YAML lên ace editor
+- render dataJson dưới dạng 2 bảng khác nhau
+
+- chuyển tap YAML đầu tiên	
+
+21/07/2014
+
+- Sửa lỗi thay đổi cấu trúc YAML, apply không load lại các trường trên DISPLAY
+
+23/07/2014
+
+- Sửa lại 2 bảng theo cấu trúc đầu vào JSON mới.
+
+- Những phần tử JSON khong có con, gom thành 1 bảng
+
+- Những phần tử JSON có con, tách thành từng bảng
+
+- Format hiển thị link, hình ảnh ra bảng

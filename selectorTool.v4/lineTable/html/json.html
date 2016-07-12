@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+      	<link rel="stylesheet" href="../css/rwd-table.css?v=5.0.3">
+      	<link rel="stylesheet" href="../css/custom.css">
+    </head>
+    <body>
+    	<div id="editorjson"> </div>
+    </body>
+    <script src="../js/libs/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/js-yaml.js"></script>
+	<script>
+		loadAceEditor(); 
+		function loadJson(dataJson){
+			var editorJson = ace.edit("editorjson");
+			if(dataJson == null || dataJson.length <= 0  ){
+				editorJson.getSession().setValue('');
+			}else{
+				editorJson.getSession().setValue(JSON.stringify(dataJson, null, '\t'));
+			}
+		}
+		function loadAceEditor(){	
+			var editorJson = ace.edit("editorjson");
+		    editorJson.setTheme("ace/theme/monokai");
+		    editorJson.getSession().setMode("ace/mode/html");
+		    editorJson.setOptions({
+				fontFamily: "monospace",
+				fontSize: "14px",
+			});
+		}
+		
+		$(window).bind('storage', function (e) {
+			if(e.originalEvent.key == 'jsonStr'){
+				arr =JSON.parse(localStorage.getItem('jsonStr'));
+				// Hiển thị dataJSON lên ace
+				loadJson(arr);
+			}
+		});
+	</script>
+</html>

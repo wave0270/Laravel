@@ -1,0 +1,171 @@
+<html xmlns= "http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta content="width=device-width,initial-scale = 1" name="viewport" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <style type="text/css">
+            #content img{
+                width: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="p-wrap">
+            <div id="content"></div>
+            <div id='css'> </div>
+        </div>
+        <div id="dotTemplate"></div>
+        <script src="../js/jquery-1.10.0.js"></script>
+        <!-- <script src="../js/fastclick.min.js"></script>  -->
+        <script src="../js/mana.js"></script>
+        <script src="../js/doT.min.js"></script>
+        <script id="templateListArt" type="text/x-dot-template">
+            <div class="row">
+            {{~it :item:index}}
+                <div class="col-md-4 col-sm-6">
+                    <div class="panel panel-default"  onclick="viewDetail('{{=item.linkTo}}')">
+                        <div class="panel-heading">
+                            <h4>{{=item.title}}</h4>
+                        </div>
+                        <div class="panel-body">
+
+                            {{?item.imgUrl}}
+                                <div class="clearfix"><img src = '{{=item.imgUrl}}'></div>
+                            {{?}}
+                            {{?item.summary}}
+                                <div class="clearfix">{{=item.summary}}</div>
+                            {{?}}
+                            {{?item.time}}
+                                <div class="clearfix">{{=item.time}}</div>
+                            {{?}}
+                            {{?item.author}}
+                                <div class="clearfix">{{=item.author}}</div>
+                            {{?}}
+
+                            <div style="margin-top: 10px;"><span class="label label-danger">Xem Thêm</span></div>
+                        </div>
+                    </div>
+                </div>
+            {{~}}
+            </div>
+        </script>
+
+        <div id="load-customjs"></div>
+        <script type="text/javascript">
+ var data = [
+        { 
+        "title": "В ЛДПР вновь предлагают перенести единый день голосования на март",
+        "summary": "Единый день голосования сейчас приходится на сентябрь. По мнению авторов законопроекта, перенос дня голосования со второго воскресенья сентября на последнее воскресенье марта позволит кандидатам проводить предвыборную кампанию в тот период времени, когда избиратели могут ее оценить и сознательно осуществить свой выбор.",
+        "linkTo": "http://ria.ru/politics/20140806/1018947455.html",
+        "imgUrl": "http://cdn4.img22.ria.ru/images/96168/98/961689860.jpg",
+        "time": "03:07 06.08.2014"
+        },
+        {
+        "title": "Путин предложил восстановить монастыри и церковь на территории Кремля",
+        "summary": "Президент РФ заявил, что план восстановления двух монастырей и церкви на территории Кремля может быть реализован только после одобрения общественностью и ЮНЕСКО.",
+        "linkTo": "http://ria.ru/religion/20140731/1018316881.html",
+        "imgUrl": "http://cdn5.img22.ria.ru/images/101839/51/1018395181.jpg",
+        "time": "16:23 31.07.2014"
+        },
+        {
+        "title": "Проект запрета госзаказчикам закупать иностранные товары внесен в Думу",
+        "summary": "Это правило предлагается ввести взамен действующего правила о равном доступе российских и иностранных предпринимателей к заключению контрактов на выполнение государственных и муниципальных заказов.",
+        "linkTo": "http://ria.ru/politics/20140730/1018193809.html",
+        "imgUrl": "http://cdn1.img22.ria.ru/images/101351/45/1013514567.jpg",
+        "time": "18:44 30.07.2014"
+        },
+        {
+        "title": "ГД: обвинения США в обстрелах Украины со стороны РФ бездоказательны",
+        "summary": "Госдепартамент США заявил в воскресенье о неких данных разведки - четырех спутниковых снимках, которые якобы подтверждают высказываемые Вашингтоном обвинения в обстреле территории Украины со стороны России.",
+        "linkTo": "http://ria.ru/politics/20140727/1017753519.html",
+        "imgUrl": "http://cdn2.img22.ria.ru/images/100509/49/1005094998.jpg",
+        "time": "21:39 27.07.2014"
+        },
+        {
+        "title": "За нарушение порядка на митингах будут лишать свободы до пяти лет",
+        "summary": "Теперь неоднократное нарушение порядка организации митинга наказывается лишением свободы до пяти лет, штрафом до 1 миллиона рублей или обязательными работами до 480 часов.",
+        "linkTo": "http://ria.ru/politics/20140722/1017058631.html",
+        "imgUrl": "http://cdn3.img22.ria.ru/images/100242/05/1002420554.jpg",
+        "time": "14:38 22.07.2014"
+        },
+        {
+        "title": "Путин подписал закон об общественном контроле в РФ",
+        "summary": "Документ устанавливает правовые основы общественного контроля за госорганами и местными властями, кроме того, следить общественники будут за работой полиции, следствия, прокуратуры и судов, за содержанием детей-сирот и за оказанием психиатрической помощи.",
+        "linkTo": "http://ria.ru/politics/20140722/1017012976.html",
+        "imgUrl": "http://cdn2.img22.ria.ru/images/101631/86/1016318648.jpg",
+        "time": "10:31 22.07.2014"
+        },
+        {
+        "title": "В ГД внесен законопроект о награждении \"городов трудовой славы\"",
+        "summary": "Согласно законопроекту, звание \"Политический, административный и хозяйственный центр СССР в годы Великой Отечественной войны\" присваивается городам РФ, на территории которых во время Великой Отечественной войны было проявлено упорство и самоотверженный труд тружеников тыла в обеспечении Победы.",
+        "linkTo": "http://ria.ru/politics/20140707/1014996781.html",
+        "imgUrl": "http://cdn4.img22.ria.ru/images/100176/85/1001768555.jpg",
+        "time": "12:11 07.07.2014"
+        },
+        {
+        "title": "Госдума ужесточила ответственность за призывы к сепаратизму",
+        "summary": "В Уголовный кодекс РФ вносятся изменения и устанавливается ответственность за публичные призывы к сепаратизму в виде штрафа от 100 тысяч до 300 тысяч рублей.",
+        "linkTo": "http://ria.ru/politics/20140704/1014729149.html",
+        "imgUrl": "http://cdn4.img22.ria.ru/images/99706/76/997067600.jpg",
+        "time": "15:04 04.07.2014"
+        },
+        {
+        "title": "Дума обязала интернет-компании хранить данные россиян только в России",
+        "summary": "При этом Роскомнадзор получает право на основании решения суда ограничивать доступ к информации, обрабатываемой с нарушением российского законодательства в области персональных данных.",
+        "linkTo": "http://ria.ru/politics/20140704/1014714310.html",
+        "imgUrl": "http://cdn1.img22.ria.ru/images/101351/45/1013514567.jpg",
+        "time": "13:49 04.07.2014"
+        },
+        {
+        "title": "Профильный комитет рекомендовал Думе принять законопроекты о рекламе",
+        "summary": "Первый документ разрешает рекламу пива на стадионах и в рамках различных спортивных трансляций, второй — запрещает рекламу на платных телеканалах, третий — исключает из закона норму о преимущественном положении лица, размещающего рекламу на конструкциях и на телевидении.",
+        "linkTo": "http://ria.ru/politics/20140703/1014629546.html",
+        "imgUrl": "http://cdn4.img22.ria.ru/images/99706/76/997067600.jpg",
+        "time": "20:29 03.07.2014"
+        },
+       
+        {
+        "title": "В ГД сочли преступной идею запретить курение женщинам до 40 лет",
+        "summary": "\"Это полная сегрегация женщин до 40 лет и вообще женщин. Они выставляются здесь людьми недееспособными, второго сорта и так далее. Что за ерунда такая? В нормальном обществе депутатов бы за это призвали к ответу\", - сказал РИА Новости Калашников.",
+        "linkTo": "http://ria.ru/society/20140609/1011362526.html",
+        "imgUrl": "http://cdn1.img22.ria.ru/images/90441/94/904419477.jpg",
+        "time": "18:54 09.06.2014"
+        },
+        {
+        "title": "Волгоградская дума 5 июня назначит дату выборов губернатора области",
+        "summary": "Также на эту же дату рекомендовано назначить выборы депутатов Волгоградской областной думы нового созыва.",
+        "linkTo": "http://ria.ru/politics/20140602/1010380458.html",
+        "imgUrl": "",
+        "time": "18:56 02.06.2014"
+        },
+        ];
+
+
+        // localStorage.setItem('jsonStr', JSON.stringify(data));
+        // generateDataWitdDotjs(data);
+
+
+        $(window).bind('storage', function (e) {
+            var setModule = e.originalEvent.key;
+            if(setModule == 'jsonStr'){
+                var obj = jQuery.parseJSON(e.originalEvent.newValue);
+                $("#dotTemplate").html('');
+                generateDataWitdDotjs(obj);
+            }
+        });
+        ///generateDataWitdDotjs();
+        function generateDataWitdDotjs(arr){
+            //var temp = data[0].dataChild;
+            
+            if( arr.length == 1){ arr = arr[0].dataChild;}
+            
+            var temp = arr;
+            var template = $("#templateListArt").html();
+            var html = doT.template(template)(temp);
+            $('#content').html(html);
+        }
+        </script>
+
+    </body>
+</html>

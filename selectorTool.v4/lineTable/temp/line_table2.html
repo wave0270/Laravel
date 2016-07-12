@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
+      	<!--<link rel="stylesheet" href="../css/rwd-table.css?v=5.0.3">-->
+      	
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+      	<link rel="stylesheet" href="../css/custom.css">
+      	<style>
+      		tr
+			{
+				border-bottom: 1px solid lightgray;
+			}
+      	</style>
+    </head>
+    <body>
+    	<p>
+    		<div id="visualUnitTable"></div>
+    	</p> 
+    </body>
+    <script src="../js/jquery-1.10.0.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+	<!-- <script src="../js/bootstrap.min.js"></script> -->
+	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script> -->	
+	<script src="../js/libs/react.fb/JSXTransformer.js"></script>
+	<script src="../js/libs/react.fb/react.min.js"></script>
+	<script src="../js/js-yaml.js"></script>
+	<!--<script type="text/javascript" src="../js/libs/rwd-table.js?v=5.0.3"></script>-->
+	<script type='text/jsx' src="linetable2.jsx"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	
+	<script type='text/jsx' >
+		/** @jsx React.DOM */
+		arr =JSON.parse(localStorage.getItem('jsonStr'));
+				
+		//render line table
+		arrLineTable = getArrLineTable(arr) // array line table
+		renderTableLine(arrLineTable);
+		
+		$(window).bind('storage', function (e) {
+			if(e.originalEvent.key == 'jsonStr'){
+				arr =JSON.parse(localStorage.getItem('jsonStr'));
+				//render line table
+				arrLineTable = getArrLineTable(arr) // array line table
+				renderTableLine(arrLineTable);
+			}
+		});
+	
+		function renderTableLine(arrLineTable){
+			// React.renderComponent(			
+			// renderLineTable( { data: arrLineTable} ),
+				// document.getElementById('visualUnitTable')
+			// );
+			var data = "<table data-role='table' id='visualUnitListTable' data-mode='columntoggle' class='ui-body-b ui-shadow table-stripe ui-responsive' data-column-btn-mini='true' data-column-btn-text='Columns to Display' data-column-btn-theme='c' data-column-popup-theme='a' >";
+		    data += "<thead>";
+		    data += "<tr>";
+		    data += "<th data-priority='1'>Unit No.</th>";
+		    data += "<th data-priority='1'>Size Code</th>";
+		    data += "<th data-priority='2'>Size</th>";
+		    data += "<th data-priority='3'>Week Rate</th>";
+		    data += "<th data-priority='3'>Month Rate</th>";
+		    data += "<th data-priority='2'>Overlocked</th>";
+		    data += "<th data-priority='2'>Visual Check</th>";
+		    data += "<th data-priority='1'>Status</th>";
+		    data += "<th></th>";
+		    data += "</tr>";
+		    data += "</thead>";
+		    data += "<tbody>";
+		    data += "<tr>";
+		    data += "<td><a href='./unit_Details.php?unit'>row1</a></td>";
+		    data += "<td>a</td>";
+		    data += "<td>b</td>";
+		    data += "<td>c</td>";
+		    data += "<td>d</td>";
+		    data += "<td>e</td>";
+		    data += "<td>f</td>";
+		    data += "<td>g</td>";
+		    data += "<td><div id='custom-border-radius'><a onclick= DisplayVisualCheckPopUP() class='ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all' data-rel='popup' data-position-to='window' data-transition='pop'>h</a></div></td>";
+		    data += "</tr>";
+		    data += "</tbody>";
+		    data += "</table>";
+			//$("#visualUnitListTable-popup-popup").remove();
+			$("#visualUnitTable").html(data);
+			$("#visualUnitTable").enhanceWithin();
+			// Add script		     		
+     		// aScript = document.createElement('script');
+			// aScript.type = 'text/javascript';
+			// aScript.src = 'http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js';
+			// document.getElementsByTagName('body')[0].appendChild(aScript);
+		}
+		 
+		
+		function getArrLineTable(arr){
+			arrLineTable = [];
+			titleArr = [];
+			dataArr = [];
+			if(arr.length > 0){
+				keys = Object.keys(arr[0]); // lấy tất cả key của dataJson2[i]
+				
+				for(var i in keys){
+					titleArr.push({'name':keys[i]});
+				}
+				
+				for(i = 0; i < arr.length; i++){
+					elementItem = {};
+					element = [];
+					
+					for(var j in keys){
+						elementItem = {'data': arr[i][keys[j]]};
+						element.push(elementItem);
+					}
+					
+					dataArr.push({'element':element})
+				}
+				arrLineTable = {dataArr: dataArr, titleArr : titleArr};
+			}else{
+				console.log('error: mảng không có giá trị!');
+			}
+			
+			return arrLineTable;
+		}
+	</script>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- treetable -->
+		<link rel="stylesheet" href="../css/treetable/screen.css" media="screen" />
+		<link rel="stylesheet" href="../css/treetable/jquery.treetable.css" />
+		<link rel="stylesheet" href="../css/treetable/jquery.treetable.theme.default.css" />
+		<!-- Bootstrap -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/custom.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="main-body" style="float:left; width:100%;">
+			<div id='general-button'>
+				<ul style='width:100%;'>
+					<li class='buttonGlobal buttonGlobalOpen'>
+						<span class="glyphicon glyphicon-folder-open" ></span>
+						<p>Open</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalSave'>
+						<span class="glyphicon glyphicon-floppy-save"></span>
+						<p>Save</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalReset'>
+						<span class="glyphicon glyphicon-retweet" ></span>
+						<p>Reset</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalGencode'>
+						<span class="glyphicon glyphicon-indent-left"></span>
+						<p>Gen Code</p>
+					</li>
+					<li id='test' class='buttonGlobal' style="float:right" onclick="testdata()">
+						<span class="glyphicon glyphicon-fullscreen"></span>
+						<p>test</p>
+					</li>
+					<li id='showHideBt' class='buttonGlobal buttonGlobal-more' style="float:right" >
+						<span class="glyphicon glyphicon-fullscreen"></span>
+						<p>Hide</p>
+					</li>
+				</ul>
+			</div>
+			<div class="vt move-select">
+				<label> Move select </label>
+				<div class='move-button'>
+					<span title="Select siblings prev" class="glyphicon glyphicon-arrow-left move-select-left" value="" onclick="projectManagerModel.arrowleft()"> </span>
+					<span title="Select parent" class="glyphicon glyphicon-arrow-up move-select-up" value="" onclick="projectManagerModel.arrowup()"> </span>
+					<span title="Select siblings next" class="glyphicon glyphicon-arrow-right move-select-right" value="" onclick="projectManagerModel.arrowright()"> </span>
+					<span title="Select children" class="glyphicon glyphicon-arrow-down move-select-down" value="" onclick="projectManagerModel.arrowdown()"> </span>
+				</div>
+			</div>
+			<div id="project-global" style="margin-top:1px; float:left; width:100%;">
+				<div  id="project-01">
+					<div id="home-content-2">
+					</div>									
+				</div>
+			</div>
+			
+			<div id='dialogDiv'>
+				<div class="modal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button" onClick="projectManagerModel.closeDialogBox()">x</button>
+								<h5 class="modal-title">Edit Dialog</h5>
+							</div>
+	
+							<div class="modal-body"></div>
+	
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-warning btn-sm" type="button" onClick="projectManagerModel.closeDialogBox()">
+									Close
+								</button>
+								<button id="submitDialog" class="btn btn-primary btn-sm" type="button">
+									Submit
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<iframe id='iframeMenu0' src='../lineTable/html/web.html' frameBorder="0" style="width:100%; height:380px"></iframe>
+			<div id="codeDiv" style="display:none;"></div>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../js/libs/jquery.min.js"></script>
+		<script src="../js/libs/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/libs/doT.min.js"></script>
+		<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>		 -->
+		
+		<!-- <script src="../js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ace/mode-javascript.js"></script>
+		<script src="../js/ace/mode-yaml.js"></script>
+		<script src="../js/ace/worker-javascript.js"></script>
+		<script src="../js/ace/theme-monokai.js"></script> -->
+		
+		<script src="../js/libs/jquery-ui.js"></script>
+		<script src="../js/libs/jquery.treetable.js"></script>
+		<script src="../js/libs/URI.js"></script>	
+		<!--backbone.js-->
+		<script src="../js/libs/underscore1.5.js"></script>
+		<script src="../js/libs/backbone.min.js"></script>		
+		<!--React-JSX---->
+		<script src="../js/libs/react.min.js"></script>
+    	<script src="../js/libs/JSXTransformer.js"></script>
+    	<!--Manual js-->
+		<script src="../js/custom.js"></script>	
+		<script src="../js/mana.js"></script>	
+    	<!--Model---->
+    	<script src="../js/models/ProjectManagerModel.js"></script>	
+		<!--Views---->
+    	<script src="../js/views/ListProjectView.js"></script>
+    	<!--JSX---->
+    	<script src="../js/menu.js" type="text/jsx"></script>		
+		<!----------------------------------------------------------->		
+		<script id="tmpl-treetable" type="text/x-dot-template">			
+			<table id="example-advanced">
+				<caption>
+					<a href="#" onclick="jQuery('#example-advanced').treetable('expandAll'); return false;"> Expand all </a> - 
+					<a href="#" onclick="jQuery('#example-advanced').treetable('collapseAll'); return false;"> Collapse all </a> - 
+					<a href="#" onclick="projectManagerModel.showAdvanceSeletor()"> Advance </a>
+				</caption>
+				<thead>
+					<tr>
+						<th>Parent Name</th>
+						<th>Name</th>
+						<th class='td-csspath'>Rule</th>
+						<th>Count</th>
+						<th>Process</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					{{~it :value:index}}
+						<tr data-tt-id='{{=index}}' id="parentrule-{{=index}}">
+							<td><span class='folder'></span></td>
+							<td></td>
+							<td class='td-csspath'></td>
+							<td></td>
+							<td></td>
+						</tr>
+						{{~value.fieldlistData :value2:index2}}
+						<tr class="childrule-{{=index}} node-{{=index}}-{{=index2}}" onclick="projectManagerModel.choiceTitle('{{=index}}-{{=index2}}')" data-tt-id='{{=index}}-{{=index2}}' data-tt-parent-id='{{=index}}'>
+							<td contenteditable="true" class='parentName' style='position:relative;'><span class='folder'>{{=value2.parentName}}</span></td>
+							<td contenteditable="true" class="titleFieldlist">{{=value2.name}}</td>
+							<td contenteditable="true" class='pathField td-csspath' id='{{=index2}}-csspath' style='max-width:120px;'><span style='padding:0px;' class='showCsspath'>{{=value2.path}}</span><span style='padding:0px;' class='trueCsspath'>{{=value2.path}}</span></td>
+							<!-- <span class='showCsspath'></span><span class='trueCsspath'>{{=value2.path}}</span> -->
+							<td class='numberField'>{{=value2.number}}</td>
+							<td class='attrField' style='padding-left:0; padding-right:0; width:85px;'>
+								<select class='selectAttr attrField{{=index2}}' style="color:gray">
+								  <option value="innerText">innerText</option>
+								  <option value="innerHTML">innerHTML</option>
+								  <option value="outerHTML">outerHTML</option>
+								  <option value="src">src</option>
+								  <option value="href">href</option>
+								</select> 
+							</td>
+						</tr>
+						{{~}}
+					{{~}}
+				</tbody>
+			</table>
+			<button class="btn btn-warning btn-sm" id="updateButton" type="button">
+				Update
+			</button>
+			<!-- <button class="btn btn-warning btn-sm" id="guessButton" type="button">
+				Guess
+			</button> -->
+		</script>
+		
+		<!----------------------------------------------------------->
+		<script  id="tmpl-project" type="text/x-dot-template">											
+				<div id="editor" style="width:100%; height:200px;">
+if (typeof _Event == 'undefined') _Event = _.extend({},Backbone.Events); // Tham khảo: http://backbonejs.org/
+var DirectData_Aiti_List = {
+	settings: {
+		url: '{{=it.url}}',
+		eventName: 'Aiti_List',
+	},
+	process: function(url) {
+		if (url == null) url = this.settings.url; 
+	    if (typeof DBJavaScriptConnInterface != 'undefined') { 
+	        console.log('Load url via framework: ' + url); 
+	        DBJavaScriptConnInterface.getUrl(url, 'DirectData_Aiti_List.processHtml', ''); 
+	    } else { 
+	        console.log('Load url via proxy: ' + url); 
+	        url = 'http://data.xixo.vn/extra/proxy.php?o=js&url=' + url; 
+	        $.getScript(url, function(d, textStatus, jqxhr) { 
+	            DirectData_Aiti_List.processHtml(data);
+	        }); 
+	    } 
+    },
+    processHtml: function(resObj) {
+    	var tmp = document.createElement('div'); 
+	    tmp.innerHTML = resObj['DATA'].replace(/src/g, 'data-src'); 
+	    fragment = document.createDocumentFragment().appendChild(tmp);           
+	    var arr = [];                                                                   
+   		{{~it.arrNotParent :value1:index1}}
+   		/*******************************************/
+		var art = {};
+		var dataParent = [];
+		var dataChild = [];
+		var nodes = fragment.querySelectorAll("{{=value1.path}}");
+		for( var j=0 ; j < nodes.length ; j++){	
+			dataParent.push(this.processElement(nodes[j],"{{=value1.path}}","{{=value1.attr}}","{{=value1.attrStyle}}"));
+		}
+		art['dataParent'] = dataParent,
+		art['titleParent'] = "{{=value1.name}}",
+		art['dataChild'] = dataChild;
+		arr.push(art);	
+		{{~}}{{~it.arrHaveParent :value2:index2}}
+		/*--------------------------------------------*/
+		var art = {};
+		var dataParent = [];
+		var dataChild = [];
+		nodes = fragment.querySelectorAll("{{=value2.parent.path}}");		
+		for( var j=0 ; j < nodes.length ; j++){
+			var artChild = {};
+			{{~value2.fieldlistData :value3:index3}}
+			artChild["{{=value3.name}}"] = this.processElement(nodes[j].querySelector("{{=value3.path}}"),"{{=value3.path}}","{{=value3.attr}}","{{=value3.attrStyle}}");					
+			{{~}}
+			dataChild.push(artChild);
+		}
+		art['dataParent'] = dataParent,
+		art['titleParent'] = "{{=value2.parent.name}}",
+		art['dataChild'] = dataChild;
+		arr.push(art);
+		{{~}}
+	    console.log('---------------- Selector Tool:');
+    	console.log(arr);
+	    /*output event */ 
+	    if(arr.length == 1){
+	    	_Event.trigger(this.settings.eventName, JSON.stringify(arr[0].dataChild));
+	    }else{
+	    	_Event.trigger(this.settings.eventName, JSON.stringify(arr));
+	    }
+    },
+    processElement: function(elem, csspath, attr, attrStyle) {
+		var result = elem;
+		if (result == null) return '';
+		if (attr == '' || attr == null) attr = 'innerHTML';
+		if (attr == 'innerHTML') return result.innerHTML;
+		if (attr == 'outerHTML') return result.outerHTML;
+		if (attr == 'getAttribute') {
+			if (attrStyle == 'href') return this.processHref_Src(elem, csspath, attr, attrStyle);
+			if (attrStyle == 'src') {
+				attrStyle = 'data-src';
+				return this.processHref_Src(elem, csspath, attr, attrStyle);
+			}
+		} 
+		return result.innerText.trim();
+    },
+    processHref_Src : function(elem, csspath, attr, attrStyle){
+    	var result = elem;
+		var data = null;
+		data = result.getAttribute(attrStyle);
+		/*recursive children - 3 level*/
+		if( data == null){
+			var childList = $(result).children();
+			for( var i=0; i < childList.length; i++){
+				data = childList[i].getAttribute(attrStyle);
+				if(data != null) return data;
+				var childList2 = $(childList[i]).children();
+				for( var j=0; j < childList2.length; j++){
+					data = childList2[j].getAttribute(attrStyle);
+					if(data != null) return data;
+					var childList3 = $(childList2[j]).children();
+					for( var f=0; f < childList3.length; f++){
+						data = childList3[f].getAttribute(attrStyle);
+						if( data != null) return data;
+					}
+				}		
+			}
+		}	
+		/*recursive parent*/
+		if( data == null){
+			var parent = $(result).parent()[0];
+			while( parent != elem){
+				data = parent.getAttribute(attrStyle);
+				if( data != null) return data;
+				parent = $(parent).parent()[0];
+			}
+		}
+		/*case: link at elem*/
+		if( data == null) data = elem.getAttribute(attrStyle);
+		return data;
+    },
+};
+				</div>						
+			</script>
+			<!----------------------------------------------------------->
+		<script id="tmpl-data-table" type="text/x-dot-template">
+			<div class="table-responsive">
+		      <table class="table">
+		        <thead>
+		          <tr>
+		            <th>Name</th>
+					<th>Data</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        	{{~it :value:index}}
+		          		<tr class='indexContent'>
+							<td colspan='2' style='text-align:left;'>{{=index + 1}}</td>
+						</tr>
+						{{~value.element :value2:index2}}
+						<tr>				
+							<td>{{=value2.name}}</td>
+							<td>{{=value2.data}}</td>
+						</tr>
+						{{~}}
+		          	{{~}}
+		        </tbody>
+		      </table>
+		    </div>
+		</script>	
+		<!----------------------------------------------------------->
+		<script id="tmpl-data-linetable" type="text/x-dot-template">
+			<div class="table-responsive">
+				<table class='table'>
+					<thead>
+						<tr>
+							<td>#</td>
+							{{~it.titleArr :value2:index2}}
+							<td style='min-width:200px;'>{{=value2.name}}</td>	
+							{{~}}
+						</tr>
+					</thead>
+					<tbody>	
+							{{~it.dataArr :value3:index3}}			
+							<tr>
+								<td>{{=index3+1}}</td>	
+								{{~value3.element :value4:index4}}										
+								<td style='min-width:200px;'>{{=value4.data}}</td>	
+								{{~}}						
+							</tr>
+							{{~}}						
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+			</div>
+		</script>		
+		<!----------------------------------------------------------->
+	</body>
+</html>

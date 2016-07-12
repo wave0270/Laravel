@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+      	<link rel="stylesheet" href="../css/rwd-table.css?v=5.0.3">
+      	<link rel="stylesheet" href="../css/custom.css">
+      	<style>
+      		.table-wrapper{
+      			position: relative;
+      		}
+      	</style>
+    </head>
+    <body>
+    	<p id="mains" style="padding-top:5px">
+    		
+    	</p>
+    	<p style="display: none" id='arrTable'>
+    		
+    	</p> 
+    </body>
+    <script src="../js/libs/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="../js/libs/react.fb/JSXTransformer.js"></script>
+	<script src="../js/libs/react.fb/react.min.js"></script>
+	<script src="../js/js-yaml.js"></script>
+	<script type="text/javascript" src="../js/libs/rwd-table.js?v=5.0.3"></script>
+	<script type='text/jsx' src="linetable.jsx"></script>
+	<script src="../js/custom.js"></script>
+	<script type='text/jsx' >
+		/** @jsx React.DOM */
+		$(window).bind('storage'
+			, function(e) {
+				if (e.originalEvent.key == 'jsonStr') {
+					jsObject = JSON.parse(localStorage.getItem('jsonStr'));
+					console.log(jsObject);
+					renderTableLine(jsObject);
+				}
+			});
+
+		// Render arr kiểu table line
+		function renderTableLine(jsObject){
+			listTableLine = getListTableLine(jsObject);
+			$('#mains').html('');
+			for(var i in listTableLine){
+				$('#arrTable').html('');
+				React.renderComponent(			
+				renderLineTable( { data: listTableLine[i]['data']} ),
+					document.getElementById('arrTable')
+				);
+				
+				htmlStr = String.format('<div id="table-nth{0}">{1}</div>', i, document.getElementById('arrTable').innerHTML) 
+			
+				$('#mains').append(htmlStr);
+				try{
+				   	$('#table-nth' + i).responsiveTable();
+				}catch(err){console.log(err)}
+				$('#arrTable').html(''); // Xóa html tạm
+			}
+		}
+		
+		// Lấy danh sách data cho các table, length của list = số bảng
+		function getListTableLine(jsObject) {
+			listTableLine = []; // Danh sách data các bảng
+			lineTableMain = getArrLineTableMain(jsObject); // Lấy tất cả phần tử không phải trong 1 nhóm (không có dataChild) tạo thành 1 bảng
+			
+			// != null thì đưa vào danh sách bảng, để hiển thị
+			if (lineTableMain != null) {
+				listTableLine.push({
+					'tableName' : 'lineTableMain',
+					'data' : lineTableMain
+				});
+			}
+
+			//Tiếp tục mỗi nhóm làm data cho 1 bảng
+			if (jsObject.length > 0) {
+				for (var i = 0; i < jsObject.length; i++) {
+					// Chỉ lấy các phần tử mà có dataChild
+					if (jsObject[i]['dataChild'].length > 0) {
+						arrLineTableGroup = getArrLineTableGroup(jsObject[i]);
+						listTableLine.push({
+							'tableName' : jsObject[i]['titleParent'],
+							'data' : arrLineTableGroup
+						});
+					}
+				}
+			} else {
+				console.log('error: mảng không có giá trị!');
+			}
+			return listTableLine;
+		}
+
+		// Lấy JSON để tạo thành dữ liệu 1 bảng từ các JSON[i] không có con (không có dataChild)
+		function getArrLineTableMain(jsObject){
+			arrLineTableMain = []; 
+			titleArr = []; // Danh sách colume
+			dataArr = [];
+			
+			// Duyệt lấy các title
+			for(var i = 0; i< jsObject.length; i++){
+				// Chỉ lấy các phần tử mà không có dataChild
+				if(jsObject[i]['dataChild'].length == 0){
+					titleArr.push({'name':jsObject[i]['titleParent']});
+				}
+			}
+			
+			// Nếu title không có phần tử nào nghĩa là không có object nào không có con (không có dataChild) 
+			if(titleArr.length == 0){ return null; }
+			
+			elementItem = {};
+			element = [];
+			for(var i = 0; i < jsObject.length; i++){
+				// Nếu có phần tử con
+				if(jsObject[i]['dataChild'].length == 0){
+					keys = Object.keys(jsObject[i]);
+					// Trường hợp data có nhiều dòng(content bài báo), format dưa vào <ul>.
+					if(jsObject[i]['dataParent'].length > 1){
+						
+						data = '<ul>';
+						for(j in jsObject[i]['dataParent']){
+							text = jsObject[i]['dataParent'][j];
+							if($.inArray( text.slice(-4), [ ".jpg", ".JPG", '.png', ".PNG", ".gif", ".GIF" ] ) == 0){
+								// Nếu là hình ảnh
+								data += String.format('<li><img style="height:50px; max-width:100px;" src="{0}"></img><br />{0}</li>', text);
+							}else if(text.slice(-5) == '.html'){ 
+								// Nếu là link
+								data += String.format('<li><a href="{0}" target="_blank">{0}</a></li>', text);
+							}else{
+								data += String.format('<li>{0}</li>', text);
+							}
+						}
+						data += '</ul>';
+					}else{
+						//data = jsObject[i]['dataParent'][0];
+						text = jsObject[i]['dataParent'][0];
+						if($.inArray( text.slice(-4), [ ".jpg", ".JPG", '.png', ".PNG", ".gif", ".GIF" ] ) == 0){
+							// Nếu là hình ảnh
+							data = String.format('<li><img style="height:50px; max-width:100px;" src="{0}"></img><br />{0}</li>', text);
+						}else if(text.slice(-5) == '.html'){ 
+							// Nếu là link
+							data = String.format('<li><a href="{0}" target="_blank">{0}</a></li>', text);
+						}else{
+							data = String.format('<li>{0}</li>', text);
+						}
+					}
+					elementItem = {'data' : data};
+					element.push(elementItem);
+				}
+			}
+			
+			dataArr.push({'element':element});
+			arrLineTableMain = {dataArr: dataArr, titleArr : titleArr, tableName: 'tableMain'};
+			return arrLineTableMain;
+		}
+
+		// Lấy JSON để tạo thành dữ liệu 1 bảng từ 1 JSON[i] có con (có dataChild)
+		function getArrLineTableGroup(jsObject) {
+			arrLineTableGroup = [];
+			keysGroup = Object.keys(jsObject['dataChild'][0]);
+			titleArr = [];
+			dataArr = [];
+			
+			// Danh sách columne
+			tableName = '';
+
+			for (var i in keysGroup) {
+				titleArr.push({
+					'name' : keysGroup[i]
+				});
+			}
+			for (var i = 0; i < jsObject['dataChild'].length; i++) {
+				elementItem = {};
+				element = [];
+				for (var j in titleArr) {
+					elementItem = {
+						'data' : jsObject['dataChild'][i][titleArr[j]['name']]
+					};
+					element.push(elementItem);
+				}
+				dataArr.push({
+					'element' : element
+				});
+			}
+			arrLineTableGroup = {
+				dataArr : dataArr,
+				titleArr : titleArr,
+				tableName : jsObject['titleParent']
+			};
+			return arrLineTableGroup;
+		}
+	</script>
+</html>

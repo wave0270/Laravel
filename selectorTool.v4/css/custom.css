@@ -1,0 +1,263 @@
+input{
+	margin:1px;
+}
+label{
+	margin:0;
+}
+/*content.html*/
+#_sg_div.sg_bottom{
+	display:none !important;
+}
+.secondselected {
+	z-index:1010 !important; 
+	background:white;
+	position: relative !important;
+	border:1px solid red !important;
+	left:0 !important;
+	color:black !important;
+} 
+#general-button p{
+	margin:1px 0;
+}
+/*menu.html */
+#divGetUrl input{
+	width:70%;
+}
+#divGetUrl .btn{
+	width:28%;
+}
+
+
+#main-body p{
+	margin:0;
+}
+.div-cssselector input{
+ 	width:100%;
+	margin-top:2px;
+ }
+.choicedIndex{
+	background:#006D91;
+}
+/*upgrade bootstrap - dialog*/
+#dialogDiv .modal{
+	top:35px;
+}
+#dialogDiv .modal-footer{ 
+	margin:0; padding:5px;}
+#dialogDiv .modal-header{
+	background: #008cba;color:white;padding:5px 10px;
+}
+#dialogDiv .modal-body{
+	padding:5px;
+}
+#dialogDiv .modal-footer .btn{
+	float:right;
+}
+#editDialog tbody > tr > td{
+	padding:3px;
+}
+
+#editDialog tbody > tr > td input{
+	width:100%;
+}
+/*FieldBox views*/
+.inputratio{
+	padding:0; width:15px; text-align:center;cursor:pointer;
+}
+.inputremove{
+	padding:0 ;width:15px; text-align:center;cursor:pointer; color:red;
+}
+/*Global*/
+#general-button{
+	width:100%; background:#3276B1; float:left; color:white; padding:5px 0;
+}
+#general-button ul{
+	float:left; padding:0;margin:0; 
+}
+.buttonGlobal{
+	float:left; width:56px; list-style:none; cursor: pointer;
+}
+.buttonGlobal:hover{
+	color:black;
+}
+.buttonGlobal span{
+	clear:both; width:100%; text-align:center;
+}
+.buttonGlobal p{
+	width:100%; text-align:center; font-size:12px;
+}
+.divGetUrl{
+	float:left; width:100%;
+}
+.divGetUrl label{
+	float:left; padding: 0 5px; line-height:40px; font-size:20px;
+}
+.divGetUrl input{
+	float:left; line-height:32px;
+}
+.divGetUrl span{
+	font-size:30px; padding: 0 5px; line-height:40px;
+}
+.divGetUrl span:hover{
+	color:#3276B1; cursor:pointer;
+}
+/*list Project*/
+.table thead{
+	background:#3276B1; color:white;
+}
+.table td{
+	border-right:1px solid #dddddd;
+}
+.table{
+	border-bottom:1px solid #dddddd; margin-bottom:5px; float:left;
+}
+.table input{
+	padding:7px 0;
+}
+.table .default-rule-more:hover{
+	color:#3276B1; cursor:pointer;
+}
+/*tab div*/
+#tabDiv{
+	margin-top:20px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+	color:white; background:#3276B1;border:none;
+}
+#tabDiv ul li a{
+	border:none; line-height:15px;
+}
+#tabDiv .nav-tabs>li{
+	margin-bottom:0;
+}
+#tabDiv ul{
+	margin-bottom;1px !important;
+}
+/*Validate*/
+#validateDiv{
+	
+}
+.resultValidate{
+	margin-top:10px;
+}
+.resultValidate .resultUrl{
+	 width:100%; border:1px solid #3276B1; margin-bottom:1px !important;
+}
+.resultUrl{
+	color:#3276B1;
+}
+.resultUrl .index{
+	width:30px; text-align:center; float:left;
+}
+.resultUrl .glyphicon{
+	float:right; width:30px; text-align:center; line-height:20px;
+}
+.indexContent td{
+	background:#dddddd;padding:0px 10px !important;
+}
+.btn{
+	margin:1px;
+}
+/*arrow click*/
+.move-select{
+	height: 105px;
+	line-height:100px;
+	
+}
+.vt{
+	float: left;
+	width: 100%;
+}
+.vt label {
+float: left;
+padding: 0 5px;
+line-height: 40px;
+font-size: 20px;
+}
+.vt span {
+font-size: 30px;
+padding: 0 5px;
+line-height: 40px;
+}
+.move-select label{
+	line-height:inherit !important;
+}
+.move-button{
+	height: 100px;
+	width: 130px;
+	text-align: center;
+	right: 135px !important;
+	float: right;
+	position: absolute;
+	z-index: 10;
+}
+.move-select-left{
+	margin-top: 30px;
+position: absolute;
+z-index: 11;
+
+	border: 1px solid #CCC;
+	left: 10px;
+}
+.move-select-right{
+	margin-top: 30px;
+position: absolute;
+z-index: 11;
+
+	right: 10px;
+	border: 1px solid #CCC;
+}
+.move-select-up{
+	margin-top: 0px;
+position: absolute;
+z-index: 11;
+
+	right: 46px;
+	border: 1px solid #CCC;
+}
+.move-select-down{
+	margin-top: 60px;
+position: absolute;
+z-index: 11;
+
+	right: 44px;
+	border: 1px solid #CCC;
+}
+.info-selected {
+	position: absolute !important;
+	z-index: 999999 !important;
+	top: 0px;
+	left:0px;
+	background: red;
+	width: 100%;
+	text-transform: none;
+	text-align: left;
+	color: black;
+	font-style: normal;
+	font-weight: normal;
+}
+/*treetable*/
+table.treetable{
+	margin-bottom:5px;
+}
+table.treetable tbody tr td{
+	padding: 2px 1px;
+}
+.indenter{
+	width:5px !important;
+	padding-left:0 !important;
+}
+.td-csspath{
+	display:none;
+}
+
+/*div dialog*/
+#parentList{
+	position:absolute; background:gray;border:1px solid white; color:white; right:0;top:0; z-index:100;min-width:100px; padding:0px;
+}
+.parentNameClick{
+	margin:5px; font-weight:bold; list-style:none; border-bottom:1px dotted;
+}
+.parentNameClick:hover{
+	color:black;
+}
