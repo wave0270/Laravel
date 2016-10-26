@@ -15,6 +15,7 @@ npm-debug.log.*
 .gitignore~
 *.sw?
 !*.swf
+*.php~
 
 # laravel:
 p_crawl_news/storage/framework
