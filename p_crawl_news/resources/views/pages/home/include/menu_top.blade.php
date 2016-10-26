@@ -24,8 +24,9 @@
                 Article <span class="caret"></span>
             </a>
     		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-              <li><a href="/news_list">news_list</a></li>
-              <li><a href="/video_list">video_list</a></li>
+              <li><a href="/news_home">News Home</a></li>
+              <li><a href="/test_news_list">test_news_list</a></li>
+              <li><a href="/test_video_list">test_video_list</a></li>
               <li class="divider"></li>
               <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Crawl Data</a>
@@ -33,10 +34,6 @@
                   <li><a tabindex="-1" href="/crawlData">crawlData</a></li>
                   <li class="dropdown-submenu">
                     <a href="/crawlData_update">crawlData_update</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">group 2.1</a></li>
-                    	<li><a href="#">group 2.2</a></li>
-                    </ul>
                   </li>
                 </ul>
               </li>

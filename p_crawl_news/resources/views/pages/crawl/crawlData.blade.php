@@ -23,6 +23,24 @@
 		  </style>
     </head>
     <body>
+      <script src="https://facebook.github.io/react/js/jsfiddle-integration-babel.js"></script>
+      <script>
+      var Hello = React.createClass({
+      render: function() {
+        return <div>Hello {this.props.name}</div>;
+      }
+      });
+      
+      ReactDOM.render(
+      <Hello name="World" />,
+      document.getElementById('container')
+      );
+      </script>
+      <div id="container">
+          <!-- This element's contents will be replaced with your component. -->
+      </div>
+
+
     	<div class="container" style="margin-top: 10px; padding-right: 5px; padding-left: 5px; width: 100%; overflow-x:hidden;">
     		<div id="crawl-status"></div>
 
@@ -39,6 +57,8 @@
 		    			_token	: TOKEN,
 		    			arr		: arr,
 		    		};
+            console.log(params)
+            return
 		    		$.post(URL_ROOT + 'aj_save_news', params, function (data) {
 		    			console.log(data)
 		    			INDEX ++;
@@ -92,25 +112,25 @@
 	   				arr = getListAll(vnexpress_beauty_obj,vnexpress_beauty[i],arr);
 	   			}
 
-	   			/*eva.vn: 103*/
-	   			for(var i=0; i<eva_thoitrang.length; i++){
-	   				arr = getListAll(eva_thoitrang_obj,eva_thoitrang[i],arr);
-	   			}
-
-	   			/*ngoisao.net: 24*/
-	   			for(var i=0; i<ngoisao_news.length; i++){
-	   				arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
-	   			}
-
-	   			/*kenh14.vn:*/
-	   			for(var i=0; i<kenh14_news.length; i++){
-	   				arr = getListAll(kenh14_news_obj,kenh14_news[i],arr);
-	   			}
-
- 	   			/*phunutoday.vn:*/
-	   			for(var i=0; i<phunutoday_vn.length; i++){
-	   				arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr);
-	   			}
+          // va.vn: 103*/
+          // (var i=0; i<eva_thoitrang.length; i++){
+	   		// 		arr = getListAll(eva_thoitrang_obj,eva_thoitrang[i],arr);
+          //
+          //
+          // goisao.net: 24*/
+          // (var i=0; i<ngoisao_news.length; i++){
+	   		// 		arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
+          //
+          //
+          // enh14.vn:*/
+          // (var i=0; i<kenh14_news.length; i++){
+	   		// 		arr = getListAll(kenh14_news_obj,kenh14_news[i],arr);
+          //
+          //
+          // phunutoday.vn:*/
+          // (var i=0; i<phunutoday_vn.length; i++){
+	   		// 		arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr);
+          //
 
 	   			/*ebe.vn:*/
 	   			// for(var i=0; i<ebe_vn.length; i++){
