@@ -23,19 +23,20 @@
 		  </style>
     </head>
     <body>
-      <script src="https://facebook.github.io/react/js/jsfiddle-integration-babel.js"></script>
+      <!-- <script src="https://facebook.github.io/react/js/jsfiddle-integration-babel.js"></script>
       <script>
       var Hello = React.createClass({
       render: function() {
         return <div>Hello {this.props.name}</div>;
       }
       });
-      
+
       ReactDOM.render(
       <Hello name="World" />,
       document.getElementById('container')
       );
-      </script>
+      </script> -->
+
       <div id="container">
           <!-- This element's contents will be replaced with your component. -->
       </div>
@@ -57,10 +58,10 @@
 		    			_token	: TOKEN,
 		    			arr		: arr,
 		    		};
-            console.log(params)
+            console.log('params',params)
             return
 		    		$.post(URL_ROOT + 'aj_save_news', params, function (data) {
-		    			console.log(data)
+		    			console.log('response data',data)
 		    			INDEX ++;
 		    			saveToDatabase(NEWS_LIST_2[INDEX]);
 		    			//todo
@@ -108,29 +109,29 @@
 	    		/*get news list*/
 
 	    		/*vnexpress.net:106*/
-	   			for(var i=0; i<vnexpress_beauty.length; i++){
+          for(var i=0; i<vnexpress_beauty.length; i++){
 	   				arr = getListAll(vnexpress_beauty_obj,vnexpress_beauty[i],arr);
-	   			}
+          }
 
           // va.vn: 103*/
-          // (var i=0; i<eva_thoitrang.length; i++){
+          // for(var i=0; i<eva_thoitrang.length; i++){
 	   		// 		arr = getListAll(eva_thoitrang_obj,eva_thoitrang[i],arr);
-          //
+          // }
           //
           // goisao.net: 24*/
-          // (var i=0; i<ngoisao_news.length; i++){
+          // for(var i=0; i<ngoisao_news.length; i++){
 	   		// 		arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
-          //
+          // }
           //
           // enh14.vn:*/
-          // (var i=0; i<kenh14_news.length; i++){
+          // for(var i=0; i<kenh14_news.length; i++){
 	   		// 		arr = getListAll(kenh14_news_obj,kenh14_news[i],arr);
-          //
+          // }
           //
           // phunutoday.vn:*/
-          // (var i=0; i<phunutoday_vn.length; i++){
-	   		// 		arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr);
-          //
+          for(var i=0; i<phunutoday_vn.length; i++){
+	   				arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr);
+          }
 
 	   			/*ebe.vn:*/
 	   			// for(var i=0; i<ebe_vn.length; i++){
@@ -138,8 +139,8 @@
 	   			// }
 
 	   			/*get detail content*/
-	   			// console.log("get detail:**********************")
-	   			// arr = getDetail(arr);
+	   			console.log("get detail:**********************")
+	   			arr = getDetail(arr);
 
 	   			/*video*****************************************************/
 	   			// /*youtube.com:*/
@@ -152,10 +153,10 @@
 
 	   			/*check how long to get data*/
 	   			var end_time = new Date().getTime();
-	   			console.log(end_time-start_time)
+	   			console.log('time: ',end_time-start_time)
 	   			NEWS_LIST = arr;
-	   			console.log(NEWS_LIST.length)
-	   			console.log(NEWS_LIST)
+	   			console.log('array length: '+NEWS_LIST.length)
+	   			console.log('array: ',NEWS_LIST)
 
 	    	});
     	</script>

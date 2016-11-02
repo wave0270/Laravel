@@ -17,7 +17,7 @@ function getList(html,csspath,list_arr,domain,type,table){
 	var htmlDOM = document.createElement("html");
 	$(htmlDOM).html(html);
 	var list = $(htmlDOM).find(csspath.parent_path);
-	console.log(list.length)
+	console.log('getList',list.length)
 	for( var i=0; i<list.length; i++){
 		if($(list[i]).find(csspath.title_path).length>0){
 			/*check obj exist in arr*/
@@ -32,8 +32,8 @@ function getList(html,csspath,list_arr,domain,type,table){
 			if(status==false){
 				if(csspath.desc_path == null){ var desc = 'in detail';
 				}else{var desc = $(list[i]).find(csspath.desc_path)[0].textContent.trim();}
-				
-				
+
+
 				var obj = {
 					title 	: $(list[i]).find(csspath.title_path)[0].textContent.trim(),
 					href	: preLink($($(list[i]).find(csspath.href_path)[0]).attr('href_none'),domain),
@@ -54,34 +54,34 @@ function getList(html,csspath,list_arr,domain,type,table){
 						obj['quality'] = 'normal';
 					}
 				}
-				
+
 				list_arr.push(obj);
 			}else{
 				/*case: don't find title*/
 				console.log('Error duplicate: '+i)
-				console.log($(list[i]).find(csspath.title_path)[0].textContent.trim())
+				console.log('$(list[i]).find(csspath.title_path)',$(list[i]).find(csspath.title_path)[0].textContent.trim())
 			}
 		}else{
 			/*case: don't find title*/
 			console.log("Error don't find title: ")
-			console.log(list[i])
+			console.log('list[i',list[i])
 		}
 	}
 	return list_arr;
 }
 function preLink(href_str,domain){
-	
+
 	if(href_str.search('http')<0){
-		console.log(href_str)
+		console.log('href_str',href_str)
 		href_str = 'http://'+domain+href_str;
 	}
 	/*case: youtube*/
-	
+
 	return href_str;
 }
 /**************************************
- * 
- * *************************************/ 
+ *
+ * *************************************/
 function checkURL(url) {
     return(url.match(/\.(jpeg|jpg|png)$/) != null);
 }
@@ -123,7 +123,7 @@ function getDetail(list_arr){
 		var html = afterGetRemoteUrl(getRemoteUrl(list_arr[i].href,false)) ;
 		var htmlDOM = document.createElement("html");
 		$(htmlDOM).html(html);
-		
+
 		/*remove el*/
 		removeEL(htmlDOM,csspath_remove);
 		/*get missing description*/
@@ -131,7 +131,7 @@ function getDetail(list_arr){
 			try{
 				list_arr[i]['desc'] = $(htmlDOM).find(csspath_detail.desc)[0].textContent.trim();
 			}catch(e){
-				
+
 			}
 		}
 		/*get content*/
