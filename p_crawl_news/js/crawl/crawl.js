@@ -16,6 +16,7 @@ function getListAll(path_obj,url_obj,list_arr,update){
 function getList(html,csspath,list_arr,domain,type,table){
 	var htmlDOM = document.createElement("html");
 	$(htmlDOM).html(html);
+	console.log('csspath.parent_path: ',csspath.parent_path)
 	var list = $(htmlDOM).find(csspath.parent_path);
 	console.log('getList',list.length)
 	for( var i=0; i<list.length; i++){

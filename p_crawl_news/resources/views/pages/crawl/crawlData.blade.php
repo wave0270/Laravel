@@ -109,9 +109,9 @@
 	    		/*get news list*/
 
 	    		/*vnexpress.net:106*/
-          for(var i=0; i<vnexpress_beauty.length; i++){
-	   				arr = getListAll(vnexpress_beauty_obj,vnexpress_beauty[i],arr);
-          }
+          // for(var i=0; i<vnexpress_beauty.length; i++){
+	   		// 		arr = getListAll(vnexpress_beauty_obj,vnexpress_beauty[i],arr);
+          // }
 
           // va.vn: 103*/
           // for(var i=0; i<eva_thoitrang.length; i++){
@@ -119,9 +119,9 @@
           // }
           //
           // goisao.net: 24*/
-          // for(var i=0; i<ngoisao_news.length; i++){
-	   		// 		arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
-          // }
+          for(var i=0; i<ngoisao_news.length; i++){
+	   				arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
+          }
           //
           // enh14.vn:*/
           // for(var i=0; i<kenh14_news.length; i++){

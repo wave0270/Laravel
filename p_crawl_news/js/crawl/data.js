@@ -37,7 +37,7 @@ var vnexpress_beauty = [
 var vnexpress_beauty_obj = {
 	domain		: 'vnexpress.net',
 	csspath		: [
-		// page
+		// page: ?
 		{
 			parent_path	: '#col_1 .list_news > li',
     		title_path	: '.title_news .txt_link',
@@ -46,7 +46,7 @@ var vnexpress_beauty_obj = {
     		desc_path	: '.news_lead',
 		},
 
-		// sub
+		// sub: ?
 		// {
 			// parent_path	: '.content_scoller > ul > li',
     		// title_path	: '.title_news .txt_link',
@@ -55,7 +55,7 @@ var vnexpress_beauty_obj = {
     		// desc_path	: '.news_lead',
 		// },
 
-		// hot
+		// hot: ?
 		{
 			parent_path	: '.box_hot_news',
     		title_path	: '.title_news .txt_link',
@@ -187,12 +187,19 @@ var ngoisao_news_obj = {
 	domain		: 'ngoisao.net',
 	csspath		: [
 		// page
+		// {
+		// 	parent_path	: 'div > div > div:nth-of-type(1) > div > div > div:nth-of-type(1).fl.lnhtl > ul:nth-of-type(1).news > li',
+    // 		title_path	: 'h3 > a',
+    // 		href_path	: 'h3 > a',
+    // 		image_path	: 'a.fl.ptw > img',
+    // 		desc_path	: 'p:nth-of-type(2)',
+		// },
 		{
-			parent_path	: 'div > div > div:nth-of-type(1) > div > div > div:nth-of-type(1).fl.lnhtl > ul:nth-of-type(1).news > li',
-    		title_path	: 'h3 > a',
-    		href_path	: 'h3 > a',
-    		image_path	: 'a.fl.ptw > img',
-    		desc_path	: 'p:nth-of-type(2)',
+			parent_path	: 'div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li',
+    		title_path	: 'a',
+    		href_path	: 'a:nth-of-type(1)',
+    		image_path	: 'mg:nth-of-type(1)',
+    		desc_path	: 'div:nth-of-type(2)',
 		},
 		// sub
 		{
