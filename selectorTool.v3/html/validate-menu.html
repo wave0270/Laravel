@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap -->
+		<link href="../css/bootstrap.yeti.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/custom.css" rel="stylesheet" />
+		<style>
+			.titleValidate{
+				background:#3276B1; line-height:40px;color:white; padding-left:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main-body">
+			
+			<div id='dialogDiv'>
+				<div class="modal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button" onClick="projectManagerModel.closeDialogBox()">x</button>
+								<h4 class="modal-title">Edit Dialog</h4>
+							</div>
+	
+							<div class="modal-body"></div>
+	
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-warning btn-sm" type="button" onClick="projectManagerModel.closeDialogBox()">
+									Close
+								</button>
+								<button id="submitDialog" class="btn btn-primary btn-sm" type="button">
+									Submit
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id='validateDiv' style='margin-top:1px; float:left; width:100%;'>
+			</div>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../js/libs/jquery.min.js"></script>
+		<!--backbone.js-->
+		<script src="../js/libs/underscore1.5.js"></script>
+		<script src="../js/libs/backbone.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/mana.js"></script>
+		<script src="../js/doT.min.js"></script>
+		<!--React-JSX---->
+		<script src="../js/libs/react-0.10.0.js"></script>
+    	<script src="../js/libs/JSXTransformer-0.10.0.js"></script>
+    	<!--Model---->
+    	<script src="../js/models/ProjectManagerModel.js"></script>
+		<script src="../js/models/GerneralCssPathModel.js"></script>		
+		<script src="../js/models/FieldListModel.js"></script>
+		<script src="../js/models/MenuSelectorModel.js"></script>
+		<script src="../js/models/DetailModel.js"></script>
+		<script src="../js/models/Validate.js"></script>
+		<!--Manual js-->
+		<script src="../js/custom.js"></script>
+			<!----------------------------------------------------------->
+		<script id="tmpl-data-table" type="text/x-dot-template">
+			<table class='table'>
+				<thead>
+					<tr>
+						<th>
+						Name
+						</th>
+						<th>Data</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{~it :value:index}}
+						<tr class='indexContent'>
+							<td colspan='2' style='text-align:left;'>{{=index + 1}}</td>
+						</tr>
+						{{~value.element :value2:index2}}
+						<tr>					
+							<td>{{=value2.name}}</td>
+							<td>{{=value2.data}}</td>
+						</tr>
+						{{~}}
+					{{~}}
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</script>		
+		<!----------------------------------------------------------->
+		<script id="tmpl-urlsList" type="text/x-dot-template">			
+			<div class='urlsValidate'>
+				<p class='titleValidate'>URLs to Validate:</p>
+				<textarea style='width:100%;' rows="4" cols="50">
+					{{~it :value:index}}
+						{{=value.url}},
+					{{~}}				
+				</textarea>
+				<button class="btn btn-warning btn-sm" type="button" onclick='validate.inspectUrlList()'>
+					Validate
+				</button>
+			</div>
+			<div class='resultValidate'>
+				<p class='titleValidate'>Validated Data:</p>
+				<ul style="padding:0;">
+					{{~it :value:index}}
+					<li>
+						<p class='resultUrl' onclick='validate.toggleResult(this)'><span class='index'>{{=index +1}}</span><span>{{=value.url}}</span><span class="glyphicon glyphicon-chevron-down"></span></p>
+						<div class='resultContent{{=index}}' style='display:none'></div>
+					</li>
+					{{~}}
+				</ul>
+			</div>
+		</script>		
+		<!----------------------------------------------------------->
+	</body>
+	<script>	
+		var projectManagerModel = new ProjectManagerModel();
+		var gerneralCssPathModel = new GerneralCssPathModel();
+		var fieldListModel = new FieldListModel();
+		var validate = new Validate();
+		function onStorageEvent(storageEvent){
+			if( storageEvent.key == 'validateData' && localStorage.getItem('validateData') != ''){
+				var data = JSON.parse(localStorage.getItem('validateData'));
+				validate.set({'prjData': data});
+				validate.set({'prjUrl':validate.get('prjData').websiteUrl});
+				validate.set({'urls':validate.dataDefault()});		
+				localStorage.removeItem('validateData','');
+			}
+		}	
+		window.addEventListener('storage', onStorageEvent, false);
+	</script>
+</html>

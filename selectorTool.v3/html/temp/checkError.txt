@@ -1,0 +1,22 @@
+Lỗi, nhận định lỗi
+1. 	- Click 1 lần nhận 2 element
+	- do csspath ko có ">" nên khi bên trong csspath có element cùng tên nó sẽ chọn luôn(http://www.nhandan.org.vn/xahoi.html), hoặc đối với trang ít có id, class phân biệt nên các thẻ dễ trùng (binhduong.gov.vn)
+
+2. 	- Lỗi không lấy được data đối với trang web không có class, id , nhiều cấp table (http://binhduong.gov.vn/vn/index.php)
+3.	- Lỗi không render được csspath chung khi click nhiều loại( http://www.vn-zoom.com/f3/), http://www.tienphong.vn/Gioi-Tre-Nhip-Song/
+	- dính giống lỗi 1
+4.	- lỗi click vào tiêu đề lấy href link nhưng kết quả null (http://bongdaplus.vn/)
+====================
+Các phần check đã lại
+- check element từ webview truyền qua full node( bỏ html,body)
+
+
+====================
+Xử lý xong:
+1. http://www.nhandan.org.vn/xahoi.html
+2. http://www.vn-zoom.com/f3/
+3. http://www.tienphong.vn/Gioi-Tre-Nhip-Song/
+	- tạo csspath full với đường dẫn css tuyệt đối
+4. http://bongdaplus.vn/
+	- do website đặt href link trên cả bài viết không nằm trong tiêu đề
+	

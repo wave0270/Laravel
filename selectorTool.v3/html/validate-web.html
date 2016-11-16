@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../js/libs/jquery.min.js"></script>
+		<script src="../js/custom.js"></script>
+		<script>
+			function receiveMessage(e) {
+				var urlDomain = getDommainUrl();
+				console.log("Server at now: "+ urlDomain)
+				// Check to make sure that this message came from the correct domain.
+				if (e.origin !== urlDomain)
+					return;
+				var arrTemp = e.data.split("sendto");
+				//console.log(e.data)
+				if(arrTemp[0] == "content"){
+					console.log("string send to menu");
+					var receiver = document.getElementById('web0').contentWindow;
+					receiver.postMessage(arrTemp[1], urlDomain);
+				}
+				if(arrTemp[0] == "menu"){
+					console.log("string send to content");
+					var receiver = document.getElementById('web1').contentWindow;
+					receiver.postMessage(arrTemp[1], urlDomain);
+				}
+				return;							
+			}
+			window.addEventListener('message', receiveMessage);
+			
+			
+		</script>
+	</head>
+	
+	<frameset id="main-frameset" cols="30%,*">
+		<frame id="web0" src="validate-menu.html" name="web0" frameborder="1" seamless>
+		<frame id="web1" src="validate-content.html" name="web1" frameborder="1" seamless>
+		 <NOFRAMES>
+		      <UL>
+		         <LI><A href="contents_of_frame1.html">Some neat contents</A>
+		         <LI><IMG src="contents_of_frame2.gif" alt="A neat image">
+		         <LI><A href="contents_of_frame3.html">Some other neat contents</A>
+		      </UL>
+		  </NOFRAMES>
+	</frameset>
+</html>

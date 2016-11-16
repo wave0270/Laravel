@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap -->
+		<!-- <link href="../css/bootstrap.yeti.min.css" rel="stylesheet"> -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/custom.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="main-body" style="float:left; width:100%;">
+			<div id='general-button'>
+				<ul style='width:100%;'>
+					<li class='buttonGlobal buttonGlobalOpen'>
+						<span class="glyphicon glyphicon-folder-open" ></span>
+						<p>Open</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalSave'>
+						<span class="glyphicon glyphicon-floppy-save"></span>
+						<p>Save</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalReset'>
+						<span class="glyphicon glyphicon-retweet" ></span>
+						<p>Reset</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalValidate'>
+						<span class="glyphicon glyphicon-qrcode"></span>
+						<p>Validate</p>
+					</li>
+					<li class='buttonGlobal buttonGlobalGencode'>
+						<span class="glyphicon glyphicon-indent-left"></span>
+						<p>Gen Code</p>
+					</li>
+					<li id='showHideBt' class='buttonGlobal buttonGlobal-more' style="float:right" >
+						<span class="glyphicon glyphicon-fullscreen"></span>
+						<p>Hide</p>
+					</li>
+				</ul>
+			</div>
+			<div class="vt move-select">
+				<label> Move select </label>
+				<div class='move-button'>
+					<span title="Select siblings prev" class="glyphicon glyphicon-arrow-left move-select-left" value="" onclick="projectManagerModel.arrowleft()"> </span>
+					<span title="Select parent" class="glyphicon glyphicon-arrow-up move-select-up" value="" onclick="projectManagerModel.arrowup()"> </span>
+					<span title="Select siblings next" class="glyphicon glyphicon-arrow-right move-select-right" value="" onclick="projectManagerModel.arrowright()"> </span>
+					<span title="Select children" class="glyphicon glyphicon-arrow-down move-select-down" value="" onclick="projectManagerModel.arrowdown()"> </span>
+				</div>
+			</div>
+			<div id="project-global" style="margin-top:1px; float:left;">
+				<div  id="project-01">
+					<div id="home-content">
+						<table class='table'>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Rule</th>
+									<th>Count</th>
+									<th>Process</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style='position:relative'>Parent </td>
+									<td class="default-rule" style="padding:0;width:150px;">
+										<input id='parentCsspath' style="width:80%;border:none;"></input>
+										<span id='showCsspathList' class="glyphicon glyphicon-list-alt"></span>
+									</td>
+									<td class="default-itemCount"></td>
+									<td class="default-attr">innerText</td>
+									<td></td>
+								</tr>
+							</tbody>
+							<tfoot class='foot-table' id='fieldlistView'>
+							</tfoot>
+						</table>
+						<button class="btn btn-warning btn-sm" type="button" onclick="fieldListModel.getDataFromFieldlistView()">
+							Update
+						</button>
+					</div>								
+				</div>
+			</div>
+			
+			<div id='dialogDiv'>
+				<div class="modal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button" onClick="projectManagerModel.closeDialogBox()">x</button>
+								<h5 class="modal-title">Edit Dialog</h5>
+							</div>
+	
+							<div class="modal-body"></div>
+	
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-warning btn-sm" type="button" onClick="projectManagerModel.closeDialogBox()">
+									Close
+								</button>
+								<button id="submitDialog" class="btn btn-primary btn-sm" type="button">
+									Submit
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='tabDiv' style="width:400px;">
+				<ul style="margin-bottom: 1px;" class="nav nav-tabs">
+					<li id="tabHome" class="active">
+						<a data-toggle="tab" href="#tableTab">Table</a>
+					</li>
+					<li id="tabLineTable" class="" >
+						<a data-toggle="tab" href="#lineTableTab">Line Table</a>
+					</li>
+					<li id="tabCode" class="" style='display:none;'>
+						<a data-toggle="tab" href="#codeTab">Code</a>
+					</li>
+				</ul>		
+				<div class="tab-content" id="myTabContent">
+					<div id="tableTab" class="tab-pane fade active in">
+						Table
+					</div>
+					<div id="lineTableTab" class="tab-pane fade" >
+						Line Table
+					</div>
+					<div id="codeTab" class="tab-pane fade">
+						Tab code
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../js/libs/jquery.min.js"></script>
+		<!--backbone.js-->
+		<script src="../js/libs/underscore1.5.js"></script>
+		<script src="../js/libs/backbone.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/mana.js"></script>
+		<script src="../js/doT.min.js"></script>
+		<!--React-JSX---->
+		<script src="../js/libs/react-0.10.0.js"></script>
+    	<script src="../js/libs/JSXTransformer-0.10.0.js"></script>
+    	<!--Model---->
+    	<script src="../js/models/ProjectManagerModel.js"></script>
+		<script src="../js/models/GerneralCssPathModel.js"></script>		
+		<script src="../js/models/FieldListModel.js"></script>
+		<script src="../js/models/MenuSelectorModel.js"></script>
+		<script src="../js/models/DetailModel.js"></script>
+		<!--Views---->
+    	<script src="../js/views/ListProjectView.js"></script>
+		<!-- <script src="../js/ace.js"></script> -->
+    	<!--JSX manual---->
+    	<script src="../js/menu.js" type="text/jsx"></script>
+		<!--Manual js-->
+		<script src="../js/custom.js"></script>		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>		
+		<!------------------------------------------------->
+		<script id="tmpl-dataSelectors" type="text/x-dot-template">
+			<div class='div-cssselector'>
+				<form id="formCssPath">
+					<table class='table'>
+						<thead>
+							<tr>
+								<th></th>
+								<th>
+								CssPath 
+								</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{{~it :value:index}}
+							<tr>
+								<td>{{=value.number}} </td>
+								<td class="cssPath">{{=value.pathCss}}</td>
+								<td><input style='width:10px;' class="highline" type="radio" name="highline" value="highline" ></td>
+							</tr>
+							{{~}}
+						</tbody>
+						<tfoot>
+						</tfoot>
+					</table>
+				</form>
+			</div>
+		</script>
+		<!----------------------------------------------------------->
+		<script id="tmpl-fieldlist" type="text/x-dot-template">			
+			{{~it :value:index}}
+			<tr onclick="fieldListModel.choiceTitle('{{=index}}')">					
+				<td contenteditable="true" class="titleFieldlist">{{=value.title}}</td>
+				<td contenteditable="true" class='pathField' id='{{=index}}-csspath'>{{=value.path}}</td>		
+				<td class='numberField'>{{=value.number}}</td>
+				<!-- <td class='choiceTitle' onclick="fieldListModel.choiceTitle({{=index}})">{{=value.attrStyle}}</td> -->
+				<td class='attrField' style='padding-left:0; padding-right:0'>
+					<select class='selectAttr attrField{{=index}}' >
+					  <option value="innerText">innerText</option>
+					  <option value="innerHTML">innerHTML</option>
+					  <option value="outerHTML">outerHTML</option>
+					  <option value="src">src</option>
+					  <option value="href">href</option>
+					</select> 
+				</td>			
+				<td style="padding:0; width:15px; text-align:center;cursor:pointer; " id="childNode{{=index}}" class="childNode choiceTitle" onclick="fieldListModel.choiceTitle({{=index}})"><input id='radio{{=index}}' style='margin-top:10px;' type="radio" name="highline" value="highline"></td>
+			</tr>
+			{{~}}		
+		</script>
+		<!----------------------------------------------------------->
+		<script  id="tmpl-dialogbox" type="text/x-dot-template">		
+				<div class="modal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button aria-hidden="true" data-dismiss="modal" class="close" type="button" onClick="projectManagerModel.closeDialogBox()">x</button>
+								<h4 class="modal-title">Edit Dialog</h4>
+							</div>
+	
+							<div class="modal-body"></div>
+	
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default btn-sm" type="button" onClick="projectManagerModel.closeDialogBox()">
+									Close
+								</button>
+								<button id="submitDialog" class="btn btn-primary btn-sm" type="button">
+									Save changes
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+		</script>
+		<!----------------------------------------------------------->
+		<script  id="tmpl-project" type="text/x-dot-template">											
+				<div id="editor" style="width:100%; height:200px;">
+if (typeof _Event == 'undefined') _Event = _.extend({},Backbone.Events); // Tham khảo: http://backbonejs.org/
+var DirectData_Aiti_List = {
+	settings: {
+		url: '{{=it.url}}',
+		eventName: 'Aiti_List',
+	},
+	process: function(functionName,url) {
+		// Nếu không có url thì sẽ chạy với url mặc định 
+		if (url == null) url = this.settings.url;
+    	// Detect xem có Framework hay không. Nếu không có framework thì DBJavaScriptConnInterface == undefined 
+	    if (typeof DBJavaScriptConnInterface != 'undefined') { 
+	        console.log('Load url via framework: ' + url); 
+	        DBJavaScriptConnInterface.getUrl(url, 'DirectData_Aiti_List.processHtml', ''); 
+	    } else { 
+	        console.log('Load url via proxy: ' + url); 
+	        url = 'http://data.xixo.vn/extra/proxy.php?o=js&url=' + url; 
+	        $.getScript(url, function(d, textStatus, jqxhr) { 
+	            DirectData_Aiti_List.processHtml(functionName,data);
+	        }); 
+	    } 
+    },
+    
+    processHtml: function(functionName,resObj) {
+    	var tmp = document.createElement('div'); 
+	    tmp.innerHTML = resObj['DATA'].replace(/src/g, 'data-src'); 
+	    fragment = document.createDocumentFragment().appendChild(tmp);                                                                              
+	    
+	    nodes = fragment.querySelectorAll('{{=it.csspathparent}}');  // Sử dụng selector default                  
+	    var arr = [];
+	    for (var i = 0; i< nodes.length; i++) {
+	    	var item = {}; 
+	    	item['functionName'] = functionName;	
+	    	{{~it.fieldlistData :value2:index2}}
+	    	item['{{=value2.title}}'] = this.processElement(nodes[i],"{{=value2.path}}","{{=value2.attr}}","{{=value2.attrStyle}}");
+	    	{{~}}	
+	    	arr.push(item);
+	    }
+	    console.log('----------------');
+    	console.log(arr);
+	    // Bắn sự kiện ra bên ngoài để html xử lý 
+	    _Event.trigger(this.settings.eventName, JSON.stringify(arr));
+    },
+    
+    processElement: function(elem, csspath, attr, attrStyle) {
+		var result = elem.querySelector(csspath);
+		if (result == null) return '';
+		if (attr == '' || attr == null) attr = 'innerHTML';
+		if (attr == 'innerHTML') return result.innerHTML;
+		if (attr == 'outerHTML') return result.outerHTML;
+		if (attr == 'getAttribute') {
+			if (attrStyle == 'href') return processHref_Src(elem, csspath, attr, attrStyle);
+			if (attrStyle == 'src') {
+				attrStyle = 'data-src';
+				return processHref_Src(elem, csspath, attr, attrStyle);
+			}
+		} 
+		return result.innerText.trim();
+    },
+    processHref_Src : function(elem, csspath, attr, attrStyle){
+    	var result = elem.querySelector(csspath);
+		var data = null;
+		data = result.getAttribute(attrStyle);
+		/*recursive children - 3 level*/
+		if( data == null){
+			var childList = $(result).children();
+			for( var i=0; i < childList.length; i++){
+				data = childList[i].getAttribute(attrStyle);
+				if(data != null) return data;
+				var childList2 = $(childList[i]).children();
+				for( var j=0; j < childList2.length; j++){
+					data = childList2[j].getAttribute(attrStyle);
+					if(data != null) return data;
+					var childList3 = $(childList2[j]).children();
+					for( var f=0; f < childList3.length; f++){
+						data = childList3[f].getAttribute(attrStyle);
+						if( data != null) return data;
+					}
+				}		
+			}
+		}	
+		/*recursive parent*/
+		if( data == null){
+			var parent = $(result).parent()[0];
+			while( parent != elem){
+				data = parent.getAttribute(attrStyle);
+				if( data != null) return data;
+				parent = $(parent).parent()[0];
+			}
+		}
+		/*case: link at elem*/
+		if( data == null) data = elem.getAttribute(attrStyle);
+		return data;
+    },
+};
+				</div>						
+			</script>
+			<!----------------------------------------------------------->
+		<script id="tmpl-data-table" type="text/x-dot-template">
+			<div class="table-responsive">
+		      <table class="table">
+		        <thead>
+		          <tr>
+		            <th>Name</th>
+					<th>Data</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        	{{~it :value:index}}
+		          		<tr class='indexContent'>
+							<td colspan='2' style='text-align:left;'>{{=index + 1}}</td>
+						</tr>
+						{{~value.element :value2:index2}}
+						<tr>				
+							<td>{{=value2.name}}</td>
+							<td>{{=value2.data}}</td>
+						</tr>
+						{{~}}
+		          	{{~}}
+		        </tbody>
+		      </table>
+		    </div>
+		</script>		
+		<!----------------------------------------------------------->
+		<script id="tmpl-data-linetable" type="text/x-dot-template">
+			<div class="table-responsive">
+				<table class='table'>
+					<thead>
+						<tr>
+							<td>#</td>
+							{{~it.titleArr :value2:index2}}
+							<td style='min-width:200px;'>{{=value2.name}}</td>	
+							{{~}}
+						</tr>
+					</thead>
+					<tbody>	
+							{{~it.dataArr :value3:index3}}			
+							<tr>
+								<td>{{=index3+1}}</td>	
+								{{~value3.element :value4:index4}}										
+								<td style='min-width:200px;'>{{=value4.data}}</td>	
+								{{~}}						
+							</tr>
+							{{~}}						
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+			</div>
+		</script>		
+		<!----------------------------------------------------------->
+		<script id="tmpl-data-default" type="text/x-dot-template">
+			<table class='table'>
+				<thead>
+					<tr>
+						<td style='min-width:200px;'>Parent</td>	
+					</tr>
+				</thead>
+				<tbody>	
+						{{~it.data :value:index}}			
+						<tr>							
+							<td style='min-width:200px;'>{{=value.data}}</td>					
+						</tr>
+						{{~}}						
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</script>		
+		<!----------------------------------------------------------->
+		<script id="tmpl-urlsList" type="text/x-dot-template">			
+			<div class='urlsValidate'>
+				<table class='table'>
+					<thead style='background:#f0ad4e;'>
+						<tr>
+							<th colspan='2'>
+							URLs to validate
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{~it :value:index}}
+						<tr>
+							<td>{{=index + 1}}</td>
+							<td>{{=value.url}}</td>
+						</tr>
+						{{~}}
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+				<p style='text-align:right;'>
+					<button style='float:left' class="btn btn-warning btn-sm" onclick="validate.backProject()">
+						Back
+					</button>
+					<button class="btn btn-warning btn-sm" onclick="">
+						Add URL
+					</button>
+					<button class="btn btn-warning btn-sm" onclick="">
+						Validate
+					</button>
+				</p>
+			</div>
+			<div class='resultValidate'>
+				<ul style="padding:0;">
+					{{~it :value:index}}
+					<li>
+						<p class='resultUrl' onclick='validate.toggleResult(this)'><span class='index'>{{=index +1}}</span><span>{{=value.url}}</span><span class="glyphicon glyphicon-chevron-down"></span></p>
+						<div class='resultContent' style='display:none'></div>
+					</li>
+					{{~}}
+				</ul>
+			</div>
+		</script>		
+		<!----------------------------------------------------------->
+		<script id="tmpl-menuselector" type="text/x-dot-template">
+			<form id="menuselector">
+				<table data-filter="#filter" class="footable" data-page-size="20">
+					<thead>
+						<tr>
+							<th data-class="expand"  data-sort-initial="true" data-type="numeric">
+								Title
+							</th>
+							<th data-hide="phone" data-sort-initial="true">
+								Href
+							</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{{~it :value:index}}
+						<tr>
+							<td>{{=value.title}} </td>
+							<td class="cssPath">{{=value.href}}</td>
+							<td onclick="menuSelectorModel.removeMenulist({{=index}})" style="padding:0 ;width:15px; text-align:center;cursor:pointer; color:red"><span class="glyphicon glyphicon-remove" ></span></td>
+						</tr>
+						{{~}}
+					</tbody>
+					<tfoot class="footable-pagination">
+						<tr>
+							<td colspan="3"><ul id="pagination" class="footable-nav" ></td>
+						</tr>
+					</tfoot>
+				</table>
+			</form>
+		</script>
+		<!----------------------------------------------------------->
+		<script id="tmpl-detail" type="text/x-dot-template">
+			<form id="formFieldlist">
+			<table data-filter="#filter" class="footable" data-page-size="50">
+				<thead>
+					<tr>
+						<th data-class="expand"  data-sort-initial="true"></th>
+						<th></th>
+						<th data-hide="phone">
+						Text
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{~it :value:index}}
+					<tr>
+						<td></td>
+						<td style="padding:0; width:15px; text-align:center;cursor:pointer" id="childNode{{=index}}" class="childNode" onclick="detailModel.choiceTitle({{=index}})"><input type="radio" name="highline" value="highline"></td>			
+						<td class="titleFieldlist">{{=value.text}}</td>		
+						<td class="titleFieldlist">{{=value.csspath}}</td>		
+						<td onclick="detailModel.removeFieldlist({{=index}})" style="padding:0 ;width:15px; text-align:center;cursor:pointer; color:red"><span class="glyphicon glyphicon-remove" ></span></td>
+					</tr>
+					{{~}}
+				</tbody>
+				<tfoot class="footable-pagination">
+					<tr>
+						<td colspan="6"><ul id="pagination" class="footable-nav" ></td>
+					</tr>
+				</tfoot>
+			</table>
+			</form>
+		</script>
+		<!----------------------------------------------------------->
+	</body>
+</html>

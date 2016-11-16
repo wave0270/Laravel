@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap -->
+		<link href="../css/bootstrap.yeti.min.css" rel="stylesheet">
+		<link href="../css/custom.css" rel="stylesheet">
+	</head>
+	<body>
+		<h2 class='newtest'>Loading ..... testpage</h2>
+	</body>
+	<script src="../js/libs/jquery.min.js"></script>
+	<!--backbone.js-->
+	<script src="../js/libs/underscore1.5.js"></script> 
+	<script src="../js/libs/backbone.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/mana.js"></script>
+	<script src="../js/custom.js"></script>
+	<script src="../js/gadget/selectorgadget.js"></script>
+	<!--Class---->
+	<script src="../js/models/Webview.js"></script>
+	<script>
+		var webview = new Webview();
+		function startClick(event) {
+			var elementNodes = JSON.stringify(createArrayCssPathFromElement(event.target, null));
+			webview.set({
+				elNodes : elementNodes
+			});
+		}
+	</script>
+	
+</html>

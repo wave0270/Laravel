@@ -1,0 +1,291 @@
+body{font:small Arial,sans-serif;margin:0;padding:0 0 5px;color:#000;background:#fff}
+        :link, :visited{color:#3fa4ff}
+        *{font-size:100%;}
+        h1 {margin:0 0 1em 0;}
+        h2 {margin:0 0 1em 0;}
+        table{border-collapse:collapse}
+        th,td{padding:0;text-align:left;border-collapse:collapse}
+        ol.reset,ul.reset{list-style:none}
+        ol.reset,ul.reset,li.reset{padding:0}
+        input,textarea,select{font:normal 100% Arial,sans-serif}
+        a{text-decoration:underline}
+        img{border:0}
+        .pd20 {padding:0 15px;}
+        #head {padding-bottom:15px;}
+        #head table {width:100%; background:#f1f1f2;height:50px;}
+        #head .auth {text-align:right; padding-right:10px;}
+        #head .logo {padding-left:15px;}
+        #head .logo a{color:#ee3d96 !important; text-transform:lowercase;}
+        #head .logo img{display:block;width:85px;height:23px;}
+        #footer {padding-top:5px;}
+        #footer div {border-top:1px solid #CCCCCC;padding:10px 0 0 15px;}
+        #footer p {margin:0 0 5px 0;}
+        .red {color:#ed338f !important;}
+        .black {color:#000 !important;}
+        .grey {color:#555;}
+        .bot_name {color:#5d5b5c;padding-top:15px; font-size:90%;}
+        .back {margin:0 0 1em 0; color:#000;}
+        .counter {padding:2px 15px;} 
+
+* { margin: 0; padding: 0; list-style: none; font-size: 100%; }
+body { font: small Arial, Helvetica, sans-serif; color: #000; }
+table { width: 100%; }
+a:link { color: #0086ff; text-decoration: underline; }
+a:visited { color: #a500a6;}
+a:hover { text-decoration: none; }
+a img { border: 0; }
+h3 { font-size: 12px; margin-bottom: 6px; }
+h3.blue { color: #0086ff; }
+h3.green { color: #519e00; }
+h3.orange { color: #ff7d00; }
+/*label { display: block; }*/
+input.txt { width: 100%; }
+
+.fix { padding: 0 10px; margin-bottom: 12px; }
+.inner { padding: 0 10px; }
+.username { font-size: 10px; }
+.username a { color: #3333ff; text-decoration: none; }
+.back { margin-bottom: 10px; }
+.user { margin-bottom: 7px; }
+
+.header { height: 35px; background: #f1f1f2; margin-bottom: 15px; }
+.mainpageheader { background: #f1f1f2;  }
+.logo { width: 84px; padding: 7px 0; }
+.right { text-align: right; }
+
+.search { background: #66b6ff; margin-bottom: 15px; }
+.search .inner { padding: 2px 10px;  }
+.search a { color: #fff; }
+.search input { background: #fff; }
+
+
+/*.weather p { margin-bottom: 17px; }
+.weather h3 { font-size: 14px; }
+.weather strong { font-size: 14px; }
+.weather .wimg { width: 40px; }
+.weather b { color: #707070; font-weight: normal; }
+.weather td { font-size: 10px; }
+.weather .hot { color: #ff0000; }
+.weather .cold { color: #0086ff; }
+
+.rates td { font-size: 10px; }
+.rates td b { font-size: 12px; }*/
+
+
+.wr-icon, .elg-icon, .sh-icon, .elp-icon, .reg-icon {background-repeat:no-repeat;}
+.wr-icon {background-image:url(/ima/weather_rates.gif);}
+#weather .container{padding-left:7px;}
+#weather p.city {line-height:1.5em;margin-bottom:0;}
+#weather p.city b {font-size:14px;}
+#weather p.city a{font-size:10px;margin-left:5px;}
+#weather p.city span{color:#0086ff;}
+#weather p.city i {font-style:normal; text-transform:none;}
+#weather .today { height:82px;padding:8px 8% 0 80px;}
+#weather .sun {background-position: 0 -270px;}
+#weather .cloudy {background-position: 0 -360px;}
+#weather .clouds {background-position: 0 -180px;}
+#weather .snow {background-position: 0 -90px;}
+#weather .rain {background-position: 0 0;}
+#weather .today b {font-size:26px; font-weight:normal;}
+#weather .forecast, #weather .today  { font-size:10px; }
+#weather .forecast {padding-top:8px; line-height:2em;}
+#weather .forecast .sm {padding-left:22px; margin-left:3px;}
+
+#weather .forecast .sun {background-position: 0 -499px;}
+#weather .forecast .cloudy {background-position: 0 -516px;}
+#weather .forecast .clouds {background-position: 0 -484px;}
+#weather .forecast .snow {background-position: 0 -468px;}
+#weather .forecast .rain {background-position: 0 -450px;}
+#weather .forecast  span {color:#707070;}
+#weather .hot {color:#FF0000 !important;}
+#weather .cold {color:#0086ff !important;}
+#weather .null {color:#373b36 !important;}
+
+#rates {padding:5px 0 10px 0;}
+#rates .nbrk {font-size:10px; text-align:left; padding-top:15px;}
+#rates p {margin-bottom:2px !important;}
+#rates table {width:120px;}
+#rates .red {color:#ed338f;background-position: 100% -592px; padding-right:7px;}
+#rates .green {color:#58b947;background-position:100% -612px; padding-right:7px;}
+#rates .null {color:#373b36;}
+#rates .name {font-size:10px;}
+#rates .val {width:20px; }
+
+#rates .USD {background-position: 0 -570px;}
+#rates .EUR {background-position: 0 -530px;}
+#rates .RUB {background-position: 0 -550px;}
+
+#rates .pr {font-weight:bold; }
+#rates .df {font-size:10px; }
+
+.mainmenu { margin-bottom: 15px; }
+.mainmenu li { margin: 10px 0; }
+.mainmenu li img { margin-bottom: -4px; }
+
+.menu { margin-bottom: 20px; }
+.menu li { margin-bottom: 5px; }
+.best h4 { font-size: 10px; font-weight: normal; }
+.best ul li { margin-bottom: 10px; }
+.newphoto ul li { margin-bottom: 18px; }
+
+.descr { margin-bottom: 30px; }
+.bold {font-weight:bold;}
+
+.navigation .fix { background: #eef5e6; padding: 3px 10px; }
+.singlephoto { margin-bottom: 10px; }
+
+textarea { width: 100%; height: 45px; margin-bottom: 10px; }
+.date { color: #bfbfbf; font-size: 11px; }
+
+.commentlist li { margin-bottom: 18px; }
+
+.loginform p { margin-bottom: 12px; }
+.err { color: #ff0000; }
+
+.interesting li { margin-bottom: 5px; }
+
+.newspost p { margin-bottom: 8px; }
+
+.videolist div { margin-bottom: 20px; }
+.videolist ul li { padding: 2px 0; color: #3d3d3d; }
+
+table.post { margin-bottom: 15px; }
+table.post .avatar { width: 45px; }
+table.post td { vertical-align: top; }
+table.post td .body { margin: 5px 0 0 5px; }
+.bloglist h3 { font-weight: normal; color: #ff0066; }
+.bloglist h3 a { color: #ff0066; }
+.bloglist .body { margin-bottom: 15px; }
+
+table.inbox td { padding: 4px 0; vertical-align: top; }
+table.inbox td.check { width: 24px; }
+table.inbox tr.second { background: #f2f2f2; }
+.from { color: #0086ff; }
+
+.blogpost p { margin-bottom: 8px; }
+.mailpost p { margin-bottom: 8px; }
+
+.level2list li {
+color:#000000;
+line-height:1.5em;
+list-style:none outside none !important;
+padding-bottom:10px;
+padding-left:10px;
+}
+
+br.clear {
+clear:both;
+font-size:1px;
+height:0;
+line-height:0;
+margin:0;
+padding:0;
+}
+
+.icon {background-image:url(/ima/icons.gif);}
+.icon-portal {background-position:0 -2px;}
+.icon-mail {background-position:0 -22px;}
+.icon-news {background-position:0 -42px;}
+.icon-files {background-position:0 -62px;}
+.icon-cards {background-position:0 -82px;}
+.icon-games {background-position:0 -102px;}
+.icon-ideas {background-position:0 -121px;}
+.icon-finance {background-position:1px -202px;}
+.icon-weather {background-position:1px -142px;}
+.icon-convertor {background-position:1px -220px;}
+.icon-video {background-position:0 -182px;}
+.icon-write {background-position:0 -473px;}
+.icon_load {background-position:0 -491px;}
+.icon-upload {background-position:0 -622px;}
+.icon_att {background-position:0 -432px;}
+.icon-help {background-position:0 -642px;}
+.icon-calen {background-position:0 -162px;}
+.icon-search {background-position:0 -718px;}
+.icon-comment {background-position:0 -680px;}
+.icon-talk {background-position:0 -762px;}
+.icon-blogs {background-position:0 -782px;}
+.icon-view {background-position:0 -800px;}
+.icon-photo {background-position:0 -817px;}
+.icon-photokg {background-position:0 -882px;}
+.icon-gdekg {background-position:0 -863px;}
+.icon-twitter {background-position:0 -841px;}
+.icon-mir {background-position:0 -920px;}
+.icon-sales {background-position:0 -3px;}
+.icon-music {background-position:0 -937px;}
+.icon-hotelki {background-position:0 -954px;}
+.icon-live {background-position:0 -970px;}
+
+.bl-icon, .icon, .lp-icon { background-repeat:no-repeat; }
+
+.s_list {padding-left:15px !important;}
+.s_list li {margin-bottom:8px !important;}
+.s_list img {vertical-align:middle; }
+
+.fromalbum { margin: 5px 0 5px 0; color: #000000; font-size:10px; /*width:80px;*/}
+/*.fromalbum .album {width:70px;background-position:-5px -32px; }*/
+.fromalbum .album img {width:40px; height:40px; display: block; padding:8px 10px 10px 8px; }
+
+.uv_online {font-size:10px; *font-size:11px; color:#fff;background:#ed338f;padding:0 2px;margin-left:5px;}
+.uv_offline {font-size:10px; *font-size:11px; color:#fff;background:#dadada;padding:0 2px;margin-left:5px;}
+
+.post-bottom {
+border-bottom:1px solid #D4D4D4;
+clear:both;
+font-size:10px;
+overflow:hidden;
+padding:2px 0 2px;
+}
+
+.post-bottom span {color: #cccccc;}
+.info {font-size:10px;}
+
+.fl { float:left; }
+.fr { float:right; }
+
+.photodate {
+background-position:0 -662px;
+padding-left:12px;
+}
+
+.widget-best .body table .img_container  div {width:90px; text-align:center;}
+.icon-count {
+background-position:-1px -42px;
+}
+
+.photo-icon {
+background-image:url("/ima/photo-icons.gif");
+background-repeat:no-repeat;
+}
+
+.widget-best .photo, .photo {
+    margin: 8px 0;
+}
+
+.widget-best div.username{text-align:left !important;}
+.widget-best .tdstat {padding:0 0 5px 0;font-size:10px;}
+.widget-best .tdstat table {width:auto;}
+.widget-best .tdstat table td * {vertical-align:middle;}
+
+.licomment {margin-top:5px;}
+.albums {font-size:10px;}
+.albums ul li {margin-top:7px;}
+.title {font-size:11px; font-weight:bold;}
+
+/*messages*/
+.user_list li{margin-bottom:4px;}
+.nw_avatar{float:left;height:40px;margin-right:7px;margin-top:2px;width:40px;}
+.nw_name{color:#000000 !important;}
+.nw_count{color:#FF0000;font-weight:bold;}
+.nw_status{margin-left:47px;margin-top:7px;}
+.online span{background:#ED338F none repeat scroll 0 0;color:#FFFFFF !important;font-size:10px;padding:0 2px;text-decoration:none !important;}
+.offline span{background:#DADADA none repeat scroll 0 0;color:#FFFFFF !important;font-size:10px;padding:0 2px;text-decoration:none !important;}
+/*end messages*/
+
+.watch-video-desc table {width:auto;}
+
+.plus18_ok, .plus18_no {display:inline-block;}
+.plus18_ok {background-color:#7fb41f; margin-right:15px;}
+.plus18_no {background-color:orange; margin-right:15px;}
+
+.event {padding-bottom:10px;}
+.mess {color:#ff7900 !important;font-weight:bold;}

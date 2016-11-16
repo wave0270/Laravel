@@ -348,35 +348,28 @@ var phunutoday_vn_obj = {
 	csspath		: [
 		// page
 		{
-			parent_path	: 'div.wrapper_center > .main_col.main_col_2_cols > .new_cat > .most_read_news > .news-item',
-    		title_path	: '.title > a',
-    		href_path	: '.title > a',
+			parent_path	: 'section:nth-child(4) > div > article',
+    		title_path	: 'div > h3 > a',
+    		href_path	: 'div > h3 > a',
     		image_path	: 'a > img',
-    		desc_path	: '.summary',
+    		desc_path	: 'div > p',
 		},
 
 		// sub
 		{
-			parent_path	: '.wrapper_center > .main_col.main_col_2_cols > .new_cat > .news_head > .news_head_l > .news_others > .news-item',
-    		title_path	: '.title > a',
-    		href_path	: '.title > a',
-    		image_path	: 'a > img',
-    		desc_path	: null,
-		},
-		{
-			parent_path	: '.wrapper_center > .main_col.main_col_2_cols > .new_cat > .news_head > .news_head_r > .news-item',
-    		title_path	: '.title > a',
-    		href_path	: '.title > a',
+			parent_path	: 'main > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(2) > li > article:nth-child(1)',
+    		title_path	: 'h2 > a',
+    		href_path	: 'h2 > a',
     		image_path	: 'a > img',
     		desc_path	: null,
 		},
 		// hot
 		{
-			parent_path	: '.news_head_l_t',
-    		title_path	: '.top-image-description > a',
-    		href_path	: '.top-image-description > a',
+			parent_path	: 'main > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > article:nth-child(1)',
+    		title_path	: 'h1 > a',
+    		href_path	: 'h1 > a',
     		image_path	: 'a > img',
-    		desc_path	: null,
+    		desc_path	: 'p',
 		},
 
 	],

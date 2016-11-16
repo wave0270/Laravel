@@ -1,0 +1,70 @@
+											
+				
+if (typeof _Event == 'undefined') _Event = _.extend({},Backbone.Events); // Tham khảo: http://backbonejs.org/
+var DirectData_Aiti_List = {
+	settings: {
+		url: 'http://baodientu.chinhphu.vn/Hoat-dong-Bo-nganh/4.vgp',
+		eventName: 'Aiti_List',
+	},
+	process: function(functionName,url) {
+		// Nếu không có url thì sẽ chạy với url mặc định 
+		if (url == null) url = this.settings.url;
+    	// Detect xem có Framework hay không. Nếu không có framework thì DBJavaScriptConnInterface == undefined 
+	    if (typeof DBJavaScriptConnInterface != 'undefined') { 
+	        console.log('Load url via framework: ' + url); 
+	        DBJavaScriptConnInterface.getUrl(url, 'DirectData_Aiti_List.processHtml', ''); 
+	    } else { 
+	        console.log('Load url via proxy: ' + url); 
+	        url = 'http://data.xixo.vn/extra/proxy.php?o=js&url=' + url; 
+	        $.getScript(url, function(d, textStatus, jqxhr) { 
+	            DirectData_Aiti_List.processHtml(functionName,data);
+	        }); 
+	    } 
+    },
+    
+    processHtml: function(functionName,resObj) {
+    	var tmp = document.createElement('div'); 
+	    tmp.innerHTML = resObj['DATA'].replace(/src/g, 'data-src'); 
+	    fragment = document.createDocumentFragment().appendChild(tmp);                                                                              
+	    
+	    nodes = fragment.querySelectorAll('.zonelisting div');  // Sử dụng selector default                  
+	    var arr = [];
+	    for (var i = 0; i< nodes.length; i++) {
+	    	var item = {}; 
+	    	item['functionName'] = functionName;	
+	    	
+	    	item['title'] = this.processElement(nodes[i],"p:nth-child(2).title a:nth-child(1)","innerText","innerText");
+	    	
+	    	item['summary'] = this.processElement(nodes[i],"p:nth-child(4).summary","innerText","innerText");
+	    	
+	    	item['linkTo'] = this.processElement(nodes[i],"p:nth-child(2).title a:nth-child(1)","getAttribute","href");
+	    	
+	    	item['imgUrl'] = this.processElement(nodes[i],"p:nth-child(1).photo a:nth-child(1) img:nth-child(1)","getAttribute","src");
+	    	
+	    	item['date'] = this.processElement(nodes[i],"p:nth-child(3).meta span:nth-child(1).time","innerText","innerText");
+	    	
+	    	item['time'] = this.processElement(nodes[i],"p:nth-child(3).meta span:nth-child(1).time","innerText","innerText");
+	    		
+	    	arr.push(item);
+	    }
+	    console.log('----------------');
+    	console.log(arr);
+	    // Bắn sự kiện ra bên ngoài để html xử lý 
+	    _Event.trigger(this.settings.eventName, JSON.stringify(arr));
+    },
+    
+    processElement: function(elem, csspath, attr, attrStyle) {
+    	var result = elem.querySelector(csspath);
+    	if (result == null) return '';
+    	if (attr == '' || attr == null) attr = 'innerHTML';
+    	if (attr == 'innerHTML') return result.innerHTML;
+    	if (attr == 'outerHTML') return result.outerHTML;
+    	if (attr == 'getAttribute') {
+    		if (attrStyle == 'src') attrStyle = 'data-src';
+    		return result.getAttribute(attrStyle);
+		} 
+		return result.innerText.trim();
+    },
+};					
+										
+			

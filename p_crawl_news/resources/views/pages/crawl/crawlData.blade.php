@@ -59,7 +59,7 @@
 		    			arr		: arr,
 		    		};
             console.log('params',params)
-            return
+            // return
 		    		$.post(URL_ROOT + 'aj_save_news', params, function (data) {
 		    			console.log('response data',data)
 		    			INDEX ++;
@@ -119,9 +119,9 @@
           // }
           //
           // goisao.net: 24*/
-          for(var i=0; i<ngoisao_news.length; i++){
-	   				arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
-          }
+          // for(var i=0; i<ngoisao_news.length; i++){
+	   		// 		arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
+          // }
           //
           // enh14.vn:*/
           // for(var i=0; i<kenh14_news.length; i++){
@@ -139,8 +139,8 @@
 	   			// }
 
 	   			/*get detail content*/
-	   			console.log("get detail:**********************")
-	   			arr = getDetail(arr);
+          // sole.log("get detail:**********************")
+          //  = getDetail(arr);
 
 	   			/*video*****************************************************/
 	   			// /*youtube.com:*/

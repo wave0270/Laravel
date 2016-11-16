@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>	
+		<h3>Generated Code: </h3>
+		<div id='editorCode' style="float:left; width:100%; height:300px;"></div>
+		<h3>Json Data: </h3>
+		<div id='editorJson' style="float:left; width:100%; height:300px;"></div>
+			
+	</body>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../js/libs/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" type="text/javascript" charset="utf-8"></script>		
+		<script>			
+			function onStorageEvent(storageEvent){
+				if(storageEvent.key == 'javascriptStr' && localStorage.getItem('javascriptStr') != ''){					
+					var editor = ace.edit("editorCode");
+					editor.setTheme("ace/theme/monokai");
+					editor.getSession().setMode("ace/mode/javascript");
+					editor.getSession().setUseWrapMode(true);
+					editor.session.setValue(localStorage.getItem('javascriptStr'));
+					localStorage.removeItem('javascriptStr','');
+					
+					var editorJson = ace.edit("editorJson");
+					editorJson.setTheme("ace/theme/monokai");
+					editorJson.getSession().setMode("ace/mode/json");
+					editorJson.getSession().setUseWrapMode(true);
+					editorJson.session.setValue(localStorage.getItem('jsonStr'));
+					localStorage.removeItem('jsonStr','');
+				}
+			}
+			window.addEventListener('storage', onStorageEvent, false);
+		</script>
+</html>
