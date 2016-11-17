@@ -28,7 +28,7 @@
 		    			_token	: TOKEN,
 		    			arr		: arr,
 		    		};
-	
+
 		    		$.post(URL_ROOT + 'aj_check_news_update', params_check, function (data) {
 		    			console.log("Check group:"+INDEX);
 		    			if(data.count > 0){
@@ -80,11 +80,11 @@
 	    				console.log('No new row!!!');
 	    				setTimeout(function(){
 							window.location.reload();
-						},360000);
+						},(30*60*1000));
 	    			}
-	    			
+
 	    		}
-	    		
+
 	    	}
 	    	function save(){
 	    		INDEX = 0;
@@ -116,43 +116,47 @@
 					var start_time = new Date().getTime();
 					var arr = [];
 		   			/*get news list*/
-		    		
-		    		/*vnexpress.net:*/ 
+
+		    		/*vnexpress.net:*/
 		   			for(var i=0; i<vnexpress_beauty.length; i++){
 		   				arr = getListAll(vnexpress_beauty_obj,vnexpress_beauty[i],arr,'update');
-		   			}	   			
-		   			/*eva.vn:*/ 
-		   			for(var i=0; i<eva_thoitrang.length; i++){
-		   				arr = getListAll(eva_thoitrang_obj,eva_thoitrang[i],arr,'update');
-		   			}		   			
-		   			/*ngoisao.net:*/ 
-		   			for(var i=0; i<ngoisao_news.length; i++){
-		   				arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr,'update');
-		   			}	
-		   			/*kenh14.vn:*/ 
-		   			for(var i=0; i<kenh14_news.length; i++){
-		   				arr = getListAll(kenh14_news_obj,kenh14_news[i],arr,'update');
 		   			}
-		   			/*phunutoday.vn:*/ 
-		   			for(var i=0; i<phunutoday_vn.length; i++){
-		   				arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr,'update');
-		   			}
-		   			// /*ebe.vn:*/ 
+            // a.vn:*/
+            // var i=0; i<eva_thoitrang.length; i++){
+            //  = getListAll(eva_thoitrang_obj,eva_thoitrang[i],arr,'update');
+            //
+            // oisao.net:*/
+            // var i=0; i<ngoisao_news.length; i++){
+            //  = getListAll(ngoisao_news_obj,ngoisao_news[i],arr,'update');
+            //
+            // nh14.vn:*/
+            // var i=0; i<kenh14_news.length; i++){
+            //  = getListAll(kenh14_news_obj,kenh14_news[i],arr,'update');
+            //
+            // unutoday.vn:*/
+            // var i=0; i<phunutoday_vn.length; i++){
+            //  = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr,'update');
+            //
+		   			// /*ebe.vn:*/
 		   			// for(var i=0; i<ebe_vn.length; i++){
 		   				// arr = getListAll(ebe_vn_obj,ebe_vn[i],arr,'update');
 		   			// }
+
+            /*get detail content*/
+            // console.log("get detail:**********************")
+            // arr = getDetail(arr);
 		   			console.log('page Number: '+arr.length);
 		   			console.log(arr);
 		   			/*save to database*/
 
-		   			if(arr.length > 0){
-		   				NEWS_LIST  = arr;
-		   				save();
-		   			}
+            if(arr.length > 0){
+              NEWS_LIST  = arr;
+              save();
+            }
 		    		/*check how long to get data*/
 		   			var end_time = new Date().getTime();
 		   			console.log(end_time-start_time)
-					
+
 	    	});
     	</script>
     </body>

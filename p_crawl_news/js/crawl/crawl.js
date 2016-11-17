@@ -31,9 +31,7 @@ function getList(html,csspath,list_arr,domain,type,table){
 			}
 			/*add to array if not exist*/
 			if(status==false){
-				if(csspath.desc_path == null){ var desc = 'in detail';
-				}else{var desc = $(list[i]).find(csspath.desc_path)[0].textContent.trim();}
-
+				var desc = csspath.desc_path != null && $(list[i]).find(csspath.desc_path).length>0 ?$(list[i]).find(csspath.desc_path)[0].textContent.trim(): 'in detail';
 
 				var obj = {
 					title 	: $(list[i]).find(csspath.title_path)[0].textContent.trim(),
@@ -128,13 +126,7 @@ function getDetail(list_arr){
 		/*remove el*/
 		removeEL(htmlDOM,csspath_remove);
 		/*get missing description*/
-		if(list_arr[i]['desc'] == 'in detail'){
-			try{
-				list_arr[i]['desc'] = $(htmlDOM).find(csspath_detail.desc)[0].textContent.trim();
-			}catch(e){
-
-			}
-		}
+    list_arr[i]['desc'] = list_arr[i]['desc'] == 'in detail' && $(htmlDOM).find(csspath_detail.desc).length>0?$(htmlDOM).find(csspath_detail.desc)[0].textContent.trim(): list_arr[i]['desc'];
 		/*get content*/
 		var el_content = $(htmlDOM).find(csspath_detail.content);
 		if(el_content.length > 0){

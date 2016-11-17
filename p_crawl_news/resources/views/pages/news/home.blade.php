@@ -24,10 +24,14 @@
                       @if($k<=3)
                       <li>
                           <a href="{{URL::route('news_detail',$v->key)}}">
-                            <img style="width:140px;height:86px" src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft">
+                            @if($v->image_full == "no Data")
+                              <img style="width:140px;height:86px" src="{{$v->image}}" alt="{{$v->title}}" class="alignleft">
+                            @else
+                              <img style="width:140px;height:86px" src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft">
+                            @endif
                           </a>
                           <p>
-                              <span>26 May, 2013.</span>
+                              <span>26 May, 2013. {{$v->domain}}</span>
                               <a href="{{URL::route('news_detail',$v->key)}}">{{$v->title}}</a>
                           </p>
                           <span class="rating"><span style="width: 80%;"></span></span>
@@ -81,10 +85,14 @@
                       @if($k<=3)
                       <li>
                           <a href="{{URL::route('news_detail',$v->key)}}">
-                            <img style="width:140px;height:86px" src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft">
+                            @if($v->image_full == "no Data")
+                              <img style="width:140px;height:86px" src="{{$v->image}}" alt="{{$v->title}}" class="alignleft">
+                            @else
+                              <img style="width:140px;height:86px" src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft">
+                            @endif
                           </a>
                           <p>
-                              <span>26 May, 2013.</span>
+                              <span>26 May, 2013. {{$v->domain}}</span>
                               <a href="{{URL::route('news_detail',$v->key)}}">{{$v->title}}</a>
                           </p>
                           <span class="rating"><span style="width: 80%;"></span></span>
@@ -140,11 +148,16 @@
                   </h5>
 
                   <div class="outertight">
-                    <img src="{{$menu[0]->data[0]->image_full}}" alt="{{$menu[0]->data[0]->title}}">
+                    @if($menu[0]->data[0]->image_full == "no Data")
+                      <img src="{{$menu[0]->data[0]->image}}" alt="{{$menu[0]->data[0]->title}}">
+                    @else
+                      <img src="{{$menu[0]->data[0]->image_full}}" alt="{{$menu[0]->data[0]->title}}">
+                    @endif
+
                       <h6 class="regular">
                         <a href="{{URL::route('news_detail',$menu[0]->data[0]->key)}}">{{$menu[0]->data[0]->title}}</a>
                       </h6>
-        <span class="meta">26 May, 2013.   \\   <a href="#">World News.</a>   \\   <a href="#">No Coments.</a></span>
+        <span class="meta">26 May, 2013. {{$menu[0]->data[0]->domain}}  \\   <a href="#">World News.</a>   \\   <a href="#">No Coments.</a></span>
                       <p>{{$menu[0]->data[0]->desc}}</p>
                   </div>
 
@@ -157,10 +170,15 @@
                           @if($k<=3 && $k > 0)
                           <li>
                               <a href="{{URL::route('news_detail',$v->key)}}">
+                                @if($v->image_full == "no Data")
+                                  <img style="width:140px; height:86px;" src="{{$v->image}}" alt="{{$v->title}}" class="alignleft">
+                                @else
                                   <img style="width:140px; height:86px;" src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft">
+                                @endif
+
                               </a>
                               <p>
-                                  <span>26 May, 2013.</span>
+                                  <span>26 May, 2013. {{$v->domain}}</span>
                                   <a href="{{URL::route('news_detail',$v->key)}}">{{$v->title}}</a>
                               </p>
                               <span class="rating"><span style="width: 60%;"></span></span>
@@ -228,9 +246,16 @@
                       @foreach( $menu[3]->data as $k => $v)
                       @if($k<=3)
                       <li>
-                          <a href="{{URL::route('news_detail',$v->key)}}"><img src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft"></a>
+                          <a href="{{URL::route('news_detail',$v->key)}}">
+                            @if($v->image_full == "no Data")
+                              <img src="{{$v->image}}" alt="{{$v->title}}" class="alignleft">
+                            @else
+                              <img src="{{$v->image_full}}" alt="{{$v->title}}" class="alignleft">
+                            @endif
+
+                          </a>
                           <p>
-                              <span>26 May, 2013.</span>
+                              <span>26 May, 2013. {{$v->domain}}</span>
                               <a href="{{URL::route('news_detail',$v->key)}}">{{$v->title}}</a>
                           </p>
                           <span class="rating"><span style="width: 80%;"></span></span>
@@ -305,7 +330,7 @@
                           <li>
                               <a href="#"><img src="{{URL::route('index')}}/src/news_page/21.png" alt="MyPassion" class="alignleft"></a>
                               <p>
-                                  <span>26 May, 2013.</span>
+                                  <span>26 May, 2013. </span>
                                   <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
                               </p>
                               <span class="rating"><span style="width: 80%;"></span></span>

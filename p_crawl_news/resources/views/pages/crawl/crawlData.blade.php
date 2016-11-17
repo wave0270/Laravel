@@ -64,7 +64,7 @@
 		    			console.log('response data',data)
 		    			INDEX ++;
 		    			saveToDatabase(NEWS_LIST_2[INDEX]);
-		    			//todo
+		    			// todo
 				    }).always(function() {
 				    	//todo
 				    }).error(function(e){
@@ -106,50 +106,48 @@
 	    		var start_time = new Date().getTime();
 
 	    		var arr = [];
-	    		/*get news list*/
+	    		/*get news list : is ok*/
 
 	    		/*vnexpress.net:106*/
           // for(var i=0; i<vnexpress_beauty.length; i++){
 	   		// 		arr = getListAll(vnexpress_beauty_obj,vnexpress_beauty[i],arr);
           // }
-
-          // va.vn: 103*/
+          // /*phunutoday.vn:*/
+          // for(var i=0; i<phunutoday_vn.length; i++){
+	   		// 		arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr);
+          // }
+          // /*va.vn: 103*/
           // for(var i=0; i<eva_thoitrang.length; i++){
 	   		// 		arr = getListAll(eva_thoitrang_obj,eva_thoitrang[i],arr);
           // }
-          //
-          // goisao.net: 24*/
+
+
+          /*get news list : is error*/
+          /*ngoisao.net: can not get title*/
           // for(var i=0; i<ngoisao_news.length; i++){
 	   		// 		arr = getListAll(ngoisao_news_obj,ngoisao_news[i],arr);
           // }
-          //
-          // enh14.vn:*/
+          // /*kenh14.vn: can not get page*/
           // for(var i=0; i<kenh14_news.length; i++){
 	   		// 		arr = getListAll(kenh14_news_obj,kenh14_news[i],arr);
           // }
+          // /*be.vn: website bao tri*/
+          // (var i=0; i<ebe_vn.length; i++){
+	   		// 		arr = getListAll(ebe_vn_obj,ebe_vn[i],arr);
           //
-          // phunutoday.vn:*/
-          for(var i=0; i<phunutoday_vn.length; i++){
-	   				arr = getListAll(phunutoday_vn_obj,phunutoday_vn[i],arr);
-          }
 
-	   			/*ebe.vn:*/
-	   			// for(var i=0; i<ebe_vn.length; i++){
-	   				// arr = getListAll(ebe_vn_obj,ebe_vn[i],arr);
-	   			// }
-
-	   			/*get detail content*/
-          // sole.log("get detail:**********************")
-          //  = getDetail(arr);
+          // et detail content*/
+          console.log("get detail:**********************")
+          arr = getDetail(arr);
 
 	   			/*video*****************************************************/
-	   			// /*youtube.com:*/
-	   			// for(var i=0; i<youtube_com.length; i++){
-	   				// arr = getListAll(youtube_com_obj,youtube_com[i],arr);
-	   			// }
-	   			// /*get detail content*/
-	   			// console.log("get detail:**********************")
-	   			// arr = getDetailYoutube(arr);
+	   			/*youtube.com:*/
+	   			for(var i=0; i<youtube_com.length; i++){
+	   				arr = getListAll(youtube_com_obj,youtube_com[i],arr);
+	   			}
+	   			/*get detail content*/
+	   			console.log("get detail:**********************")
+	   			arr = getDetailYoutube(arr);
 
 	   			/*check how long to get data*/
 	   			var end_time = new Date().getTime();

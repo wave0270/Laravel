@@ -16,7 +16,7 @@
     		@foreach($news as $k => $v)
     		<div class="col-sm-4" style="height:300px;">
     			<div class="title">
-    				<a href="{{URL::route('video_detail',$v->id)}}" target="_blank">{{$v->title}}</a>
+    				<a href="{{URL::route('test_video_detail',$v->id)}}" target="_blank">{{$v->title}}</a>
     			</div>
     			<div class="img" style="height:200px; overflow: hidden;">
     				<img alt="{{$v->title}}" src="{{$v->image}}" style="width:100%;">
@@ -30,7 +30,7 @@
     </body>
     <script>
     	$(document).ready(function(){
-			
+
     	});
 	</script>
 </html>

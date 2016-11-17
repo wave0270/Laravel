@@ -8,30 +8,31 @@ var vnexpress_beauty = [
 		url			: "http://suckhoe.vnexpress.net/tin-tuc/khoe-dep",
 		type		: 'khoe-dep',
 		table		: 'news_beauty_tb',
-		num_page	: 1,
+		num_page	: 1
 	},
 	{
 		url_page 	: "http://suckhoe.vnexpress.net/tin-tuc/dinh-duong/page/{0}.html",
 		url 		: "http://suckhoe.vnexpress.net/tin-tuc/dinh-duong",
 		type		: 'dinh-duong',
 		table		: 'news_beauty_tb',
-		num_page	: 1,
+		num_page	: 1
 	},
 	{
 		url_page 	: "http://giaitri.vnexpress.net/tin-tuc/gioi-sao/page/{0}.html",
 		url 		: "http://giaitri.vnexpress.net/tin-tuc/gioi-sao",
 		type		: 'gioi-sao',
 		table		: 'news_beauty_tb',
-		num_page	: 1,
+		num_page	: 1
 	},
 	{
 		url_page 	: "http://vnexpress.net/tin-tuc/tam-su/page/{0}.html",
 		url 		: "http://vnexpress.net/tin-tuc/tam-su",
 		type		: 'tam-su',
 		table		: 'news_beauty_tb',
-		num_page	: 1,
-	},
+		num_page	: 1
+	}
 ];
+
 
 /*one obj can use for all pages of domain*/
 var vnexpress_beauty_obj = {
@@ -43,7 +44,7 @@ var vnexpress_beauty_obj = {
     		title_path	: '.title_news .txt_link',
     		href_path	: '.title_news .txt_link',
     		image_path	: '.thumb img',
-    		desc_path	: '.news_lead',
+    		desc_path	: '.news_lead'
 		},
 
 		// sub: ?
@@ -187,35 +188,22 @@ var ngoisao_news_obj = {
 	domain		: 'ngoisao.net',
 	csspath		: [
 		// page
-		// {
-		// 	parent_path	: 'div > div > div:nth-of-type(1) > div > div > div:nth-of-type(1).fl.lnhtl > ul:nth-of-type(1).news > li',
-    // 		title_path	: 'h3 > a',
-    // 		href_path	: 'h3 > a',
-    // 		image_path	: 'a.fl.ptw > img',
-    // 		desc_path	: 'p:nth-of-type(2)',
-		// },
 		{
-			parent_path	: 'div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li',
+			parent_path	: 'ul#news_home > li',
     		title_path	: 'a',
-    		href_path	: 'a:nth-of-type(1)',
-    		image_path	: 'mg:nth-of-type(1)',
+    		href_path	: 'a',
+    		image_path	: 'img',
     		desc_path	: 'div:nth-of-type(2)',
 		},
 		// sub
-		{
-			parent_path	: '.top > div > .tnhtbwHT > ul.tnhtb > li',
-    		title_path	: 'h3.t > a',
-    		href_path	: 'h3.t > a',
-    		image_path	: 'a.ptw > img',
-    		desc_path	: null,
-		},
+
 		// hot
 		{
-			parent_path	: '.top > div > div.tnht > div.news',
-    		title_path	: 'div.txw > h3 > a',
-    		href_path	: 'div.txw > h3 > a',
-    		image_path	: 'a.ptw > img',
-    		desc_path	: 'div.txw > p',
+			parent_path	: '#col_680 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)',
+    		title_path	: 'div > h3:nth-child(1) > a:nth-child(1)',
+    		href_path	: 'div > h3:nth-child(1) > a:nth-child(1)',
+    		image_path	: 'a > img:nth-child(2)',
+    		desc_path	: 'div > p:nth-child(2)',
 		},
 	],
 	csspath_detail : {

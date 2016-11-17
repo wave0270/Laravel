@@ -63,14 +63,27 @@ return [
 			// 'prefix'    => '',
 			// 'strict'    => false,
 		// ],
-
+    
+        /*config my home local DB*/
+//		'mysql' => [
+//			'driver'    => 'mysql',
+//			'host'      => 'localhost',
+//			'database'  => 'wd_crawl_news_db',
+//			'username'  => 'root',
+//			'password'  => 'songoku',
+//			'charset'   => 'utf8',
+//			'collation' => 'utf8_unicode_ci',
+//			'prefix'    => '',
+//			'strict'    => false,
+//		],
+    
+        /*config my home local DB*/
 		'mysql' => [
 			'driver'    => 'mysql',
-			// 'host'      => '54.254.170.8',
-			'host'      => 'localhost',
-			'database'  => 'wd_crawl_news_db',
-			'username'  => 'root',
-			'password'  => 'songoku',
+			'host'      => '31.220.110.131',
+			'database'  => 'u848488787_craw',
+			'username'  => 'u848488787_craw',
+			'password'  => 'songoku0270',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
