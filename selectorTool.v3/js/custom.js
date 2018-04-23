@@ -27,7 +27,6 @@ function reportError(idNailElement, errorStr) {
 }
 //********************/
 function createFullPath(arrayCssSelector) {
-	//console.log("in createFullPath()")
 	var pathCssFull = [];
 	for (var i = 0; i < arrayCssSelector.length; i++) {
 		var element = String.format("{0}", arrayCssSelector[i].tagName);	
@@ -38,9 +37,17 @@ function createFullPath(arrayCssSelector) {
 		if (arrayCssSelector[i].id != "") {
 			element = String.format("{0}#{1}", element, arrayCssSelector[i].id);
 		}
-		if (arrayCssSelector[i].className != "") {
-			for (var j = 0; j < arrayCssSelector[i].className.length; j++) {
-				element = String.format("{0}.{1}", element, arrayCssSelector[i].className[j]);
+		if (arrayCssSelector[i].className) {
+			if (arrayCssSelector[i].className.length) {
+				// is array
+				for (var j = 0; j < arrayCssSelector[i].className.length; j++) {
+					element = String.format("{0}.{1}", element, arrayCssSelector[i].className[j]);
+				}
+			} else {
+				// is object
+				for (var j in arrayCssSelector[i].className ) {
+					element = String.format("{0}.{1}", element, arrayCssSelector[i].className[j]);
+				}
 			}
 		}
 		if (arrayCssSelector[i].specialAttr.length != 0) {

@@ -188,7 +188,7 @@ var GerneralCssPathModel = Backbone.Model.extend({
 
 /*** Cac ham chia nho*****************************/
 function initCssSelectorNodeBegin(arrCssPaths, arrayCssSelector) {
-	//console.log("in initCssSelectorNodeBegin()")
+	console.log("in initCssSelectorNodeBegin()")
 	var path = "";
 	for (var i = 0; i < arrayCssSelector.length; i++) {
 		if (arrCssPaths.length == 0) {
@@ -294,13 +294,25 @@ function compareClass(nodeSelectorStart, nodeSelectorNext) {
 		var className = "";
 	} else {
 		var className = [];
-		for (var i = 0; i < nodeSelectorStart.className.length; i++) {
-			for (var j = 0; j < nodeSelectorNext.className.length; j++) {
-				if (nodeSelectorStart.className[i] == nodeSelectorNext.className[j]) {
-					className.push(nodeSelectorStart.className[i]);
+		if (nodeSelectorStart.className.length) {
+			// nodeSelectorStart is arr
+			for (var i = 0; i < nodeSelectorStart.className.length; i++) {
+				for (var j = 0; j < nodeSelectorNext.className.length; j++) {
+					if (nodeSelectorStart.className[i] == nodeSelectorNext.className[j]) {
+						className.push(nodeSelectorStart.className[i]);
+					}
 				}
 			}
-		}
+		} else {
+			// nodeSelectorStart is object
+			for (var i in nodeSelectorStart.className) {
+				for (var j in nodeSelectorNext.className) {
+					if (nodeSelectorStart.className[i] == nodeSelectorNext.className[j]) {
+						className.push(nodeSelectorStart.className[i]);
+					}
+				}
+			}
+		} 
 		if (className.length == 0) {
 			var className = "";
 		}
