@@ -66,12 +66,25 @@ var GerneralCssPathModel = Backbone.Model.extend({
 			return arraySelectorStart;
 		}
 	},
+
+	shortenArrayCssSelector: function({ arrayCssSelector = [], number = 0 } ) {
+		const newArr = _.cloneDeep(arrayCssSelector)
+		newArr.pop();
+		if (countElements(createFullPath(newArr)) <= number) {
+			arrayCssSelector = this.shortenArrayCssSelector({number, arrayCssSelector: newArr});
+		}
+		return arrayCssSelector
+	},
+
 	initSuggestElementArr : function() {
 		console.log("in GerneralCssPathModel.initSuggestElementArr()");
 		var arrayCssSelector = this.generateArrClickElements();
+		var fullPath = createFullPath(arrayCssSelector)
+		var number = countElements(fullPath)
 		var arrCssPaths = [];
+		arrayCssSelector = this.shortenArrayCssSelector({ arrayCssSelector, number })
 		initCssSelectorNodeBegin(arrCssPaths, arrayCssSelector);
-		var numberParentClass = 0;
+
 		for (var i = 1; i < arrayCssSelector.length; i++) {
 			var length = arrCssPaths.length;
 			if (arrayCssSelector[i].id != "") {
@@ -79,14 +92,16 @@ var GerneralCssPathModel = Backbone.Model.extend({
 					path = String.format("#{0} {1}", arrayCssSelector[i].id, arrCssPaths[j].pathCss);
 					addNumberToArrCssPath(path, arrCssPaths, false);
 				}
+				arrCssPaths.push({number, pathCss: fullPath})
 				return arrCssPaths;
 			}
 			if (arrayCssSelector[i].tagName != "" && arrayCssSelector[i].tagName != "div" && arrayCssSelector[i].tagName != "html" && arrayCssSelector[i].tagName != "body") {
 				if (arrayCssSelector[i].nthchild != "") {
 					for (var j = 0; j < length; j++) {
-						path = String.format("{0}:nth-child({1}) {2}", arrayCssSelector[i].tagName, arrayCssSelector[i].nthchild, arrCssPaths[j].pathCss);					
+						path = String.format("{0}:nth-child({1}) {2}", arrayCssSelector[i].tagName, arrayCssSelector[i].nthchild, arrCssPaths[j].pathCss);
 						addNumberToArrCssPath(path, arrCssPaths, false);	
 						if( arrCssPaths.length == 200){
+							arrCssPaths.push({number, pathCss: fullPath})
 							return arrCssPaths;	
 						}											
 					}
@@ -105,10 +120,10 @@ var GerneralCssPathModel = Backbone.Model.extend({
 					}
 				}
 				//chỉ cho phép lấy class trên 2 node cha:
-				numberParentClass++;
-				if (numberParentClass == 2) {
-					return arrCssPaths;
-				}
+				// numberParentClass++;
+				// if (numberParentClass == 2) {
+				// 	return arrCssPaths;
+				// }
 			}
 			if (arrayCssSelector[i].specialAttr.length != 0) {
 				for (var j = 0; j < arrayCssSelector[i].specialAttr.length; j++) {
@@ -119,6 +134,8 @@ var GerneralCssPathModel = Backbone.Model.extend({
 				}
 			}	
 		}
+		
+		arrCssPaths.push({number, pathCss: fullPath})
 		return arrCssPaths;
 	},
 	renderCssSelector : function(arrCssPaths) {
