@@ -70,7 +70,8 @@ var GerneralCssPathModel = Backbone.Model.extend({
 	shortenArrayCssSelector: function({ arrayCssSelector = [], number = 0 } ) {
 		const newArr = _.cloneDeep(arrayCssSelector)
 		newArr.pop();
-		if (countElements(createFullPath(newArr)) <= number) {
+		console.log('shortenArrayCssSelector', newArr)
+		if (countElements(createFullPath(newArr)) <= number && !_.isEmpty(newArr)) {
 			arrayCssSelector = this.shortenArrayCssSelector({number, arrayCssSelector: newArr});
 		}
 		return arrayCssSelector
@@ -93,6 +94,7 @@ var GerneralCssPathModel = Backbone.Model.extend({
 					addNumberToArrCssPath(path, arrCssPaths, false);
 				}
 				arrCssPaths.push({number, pathCss: fullPath})
+				console.log(arrCssPaths)
 				return arrCssPaths;
 			}
 			if (arrayCssSelector[i].tagName != "" && arrayCssSelector[i].tagName != "div" && arrayCssSelector[i].tagName != "html" && arrayCssSelector[i].tagName != "body") {
@@ -102,6 +104,7 @@ var GerneralCssPathModel = Backbone.Model.extend({
 						addNumberToArrCssPath(path, arrCssPaths, false);	
 						if( arrCssPaths.length == 200){
 							arrCssPaths.push({number, pathCss: fullPath})
+							console.log(arrCssPaths)
 							return arrCssPaths;	
 						}											
 					}
@@ -136,6 +139,7 @@ var GerneralCssPathModel = Backbone.Model.extend({
 		}
 		
 		arrCssPaths.push({number, pathCss: fullPath})
+		console.log(arrCssPaths)
 		return arrCssPaths;
 	},
 	renderCssSelector : function(arrCssPaths) {

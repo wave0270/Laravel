@@ -26,13 +26,17 @@ function reportError(idNailElement, errorStr) {
 	}, 2000);
 }
 //********************/
-function createFullPath(arrayCssSelector) {
+function createFullPath(arrayCssSelector, isChild = false) {
 	var pathCssFull = [];
 	for (var i = 0; i < arrayCssSelector.length; i++) {
 		var element = String.format("{0}", arrayCssSelector[i].tagName);	
 		//note: add nth-child: ko add with html, body, last node:
 		if (arrayCssSelector[i].tagName != "html" && arrayCssSelector[i].tagName != "body" && arrayCssSelector[i].nthchild != "" && arrayCssSelector[i].tagName != "" && i != arrayCssSelector.length-1) {
-			element = String.format("{0}:nth-child({1})", element, arrayCssSelector[i].nthchild);
+			if (isChild) {
+				element = String.format("{0}", element, arrayCssSelector[i].nthchild);
+			} else {
+				element = String.format("{0}:nth-child({1})", element, arrayCssSelector[i].nthchild);
+			}
 		}
 		if (arrayCssSelector[i].id != "") {
 			element = String.format("{0}#{1}", element, arrayCssSelector[i].id);

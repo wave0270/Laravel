@@ -46,8 +46,23 @@ function receiveMessage(e){
 			}		
 			var childCssPath = createFullPath(arrNew);
 			var fullCssPath = String.format("{0} {1}",fieldListModel.get('parentCssPath'),childCssPath);
-			projectManagerModel.requireHightLightGenCssPath(fullCssPath);
 			var numberElements = countElements(fullCssPath);
+			
+			/* optimize childCsspath */
+			var childCssPath_2 = createFullPath(arrNew, true);
+			var fullCssPath_2 = String.format("{0} {1}",fieldListModel.get('parentCssPath'),childCssPath_2);
+			var numberElements_2 = countElements(fullCssPath_2);
+			if (numberElements === numberElements_2) {
+				console.log('*** Get from childCssPath_2, oldchildCsspath: ', childCssPath)
+				childCssPath = childCssPath_2;
+				fullCssPath = fullCssPath_2;
+				numberElements = numberElements_2;
+			} else {
+				console.log('*** Get from childCssPath, numberElements_2: ', numberElements_2)
+			}
+			/* end optimize childCsspath */
+			projectManagerModel.requireHightLightGenCssPath(fullCssPath);
+
 			/*update data from #fieldlistView*/
 			fieldListModel.getDataFromFieldlistView();
 			var fieldlistData = fieldListModel.get('fieldlistData');
