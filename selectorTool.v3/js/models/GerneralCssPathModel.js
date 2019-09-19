@@ -70,10 +70,12 @@ var GerneralCssPathModel = Backbone.Model.extend({
 	shortenArrayCssSelector: function({ arrayCssSelector = [], number = 0 } ) {
 		const newArr = _.cloneDeep(arrayCssSelector)
 		newArr.pop();
-		console.log('shortenArrayCssSelector', newArr)
+		
 		if (countElements(createFullPath(newArr)) <= number && !_.isEmpty(newArr)) {
 			arrayCssSelector = this.shortenArrayCssSelector({number, arrayCssSelector: newArr});
 		}
+
+		console.log('shortenArrayCssSelector', arrayCssSelector, countElements(createFullPath(arrayCssSelector)), createFullPath(newArr))
 		return arrayCssSelector
 	},
 
@@ -93,17 +95,19 @@ var GerneralCssPathModel = Backbone.Model.extend({
 					path = String.format("#{0} {1}", arrayCssSelector[i].id, arrCssPaths[j].pathCss);
 					addNumberToArrCssPath(path, arrCssPaths, false);
 				}
-				arrCssPaths.push({number, pathCss: fullPath})
+				arrCssPaths.push({number, pathCss: createFullPath(arrayCssSelector)})
 				console.log(arrCssPaths)
 				return arrCssPaths;
 			}
-			if (arrayCssSelector[i].tagName != "" && arrayCssSelector[i].tagName != "div" && arrayCssSelector[i].tagName != "html" && arrayCssSelector[i].tagName != "body") {
+
+			//  arrayCssSelector[i].tagName != "div"
+			if (arrayCssSelector[i].tagName != "" && arrayCssSelector[i].tagName != "html" && arrayCssSelector[i].tagName != "body") {
 				if (arrayCssSelector[i].nthchild != "") {
 					for (var j = 0; j < length; j++) {
 						path = String.format("{0}:nth-child({1}) {2}", arrayCssSelector[i].tagName, arrayCssSelector[i].nthchild, arrCssPaths[j].pathCss);
 						addNumberToArrCssPath(path, arrCssPaths, false);	
 						if( arrCssPaths.length == 200){
-							arrCssPaths.push({number, pathCss: fullPath})
+							arrCssPaths.push({number, pathCss: createFullPath(arrayCssSelector)})
 							console.log(arrCssPaths)
 							return arrCssPaths;	
 						}											
@@ -138,7 +142,7 @@ var GerneralCssPathModel = Backbone.Model.extend({
 			}	
 		}
 		
-		arrCssPaths.push({number, pathCss: fullPath})
+		arrCssPaths.push({number, pathCss: createFullPath(arrayCssSelector)})
 		console.log(arrCssPaths)
 		return arrCssPaths;
 	},
@@ -242,7 +246,9 @@ function initCssSelectorNodeBegin(arrCssPaths, arrayCssSelector) {
 	}
 }
 function addNumberToArrCssPath(path, arrCssPaths, firstNode) {
+	
 	var numberElement = countElements(path).toString();
+	console.log(path, numberElement)
 	if( firstNode == true){
 		var temp = {
 			number : numberElement,
@@ -250,7 +256,7 @@ function addNumberToArrCssPath(path, arrCssPaths, firstNode) {
 		};
 		arrCssPaths.push(temp);
 	}else{
-		if(gerneralCssPathModel.get('elementNumber') >= numberElement){
+		if(gerneralCssPathModel.get('elementNumber') === Number(numberElement)){
 			var temp = {
 				number : numberElement,
 				pathCss : path,
